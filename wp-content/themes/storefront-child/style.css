@@ -1,0 +1,17 @@
+/*
+Theme Name: Tim Veedahl
+Version: 1.0
+Description: Storefront child theme for Tim Veedahl.
+Author: Tim Veedahl
+Author URI: http://timveedahl.com
+Template: storefront
+*/
+
+@import url("../storefront/style.css");
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+.site-header {
+	background-color: #FFFFFF;
+}
