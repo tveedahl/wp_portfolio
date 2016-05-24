@@ -1,0 +1,313 @@
+// Imports
+@import "_bootstrap";
+@import "_colors";
+
+// font-face declarations
+@font-face {
+  font-family: 'Fh_Space';
+  src: url('../fonts/Fh_Space.otf') format('opentype');
+}
+
+// Bootstrap Overrides
+.navbar {
+  background: $bg-main;
+}
+
+.carousel-caption p {
+  font-size: 21px;
+}
+
+// Main
+body {
+  background: $bg-main !important;
+  font-family: Fh_Space;
+  font-size: 14px !important;
+}
+
+#myCarousel {
+  margin-bottom: 40px;
+}
+
+//front-page carousel slide captions
+.carousel-caption.first {
+	bottom: 110px;
+}
+
+.carousel-caption.second {
+	bottom: 80px;
+}
+
+.carousel-caption.third {
+	bottom: 45px;
+}
+
+.col-lg-4 h2 {
+  color: $base-text-color;
+}
+
+.col-lg-4 p {
+  color: $base-text-color;
+}
+
+a.more-link {
+  color: $anchor;
+  text-decoration: none;
+}
+
+a.more-link:hover {
+  color: $anchor-hover;
+}
+
+a.more-link:visited {
+  color: $anchor-visited;
+}
+
+span.page-numbers.current {
+  color: $anchor-hover;
+}
+
+a.page-numbers {
+  color: $anchor;
+  text-decoration: none;
+}
+
+a.page-numbers:hover {
+  color: $anchor-hover;
+}
+
+a.page-numbers:visited {
+  color: $anchor-visited;
+}
+
+.site-info {
+  color: $base-text-color;
+}
+
+.pImage {
+  float: left;
+  margin-bottom: 35px;
+  margin-right: 15px;
+}
+
+h1.text-center {
+  color: $base_text-color;
+}
+
+.about p {
+  line-height: 1.75;
+  color: $base-text-mid !important;
+}
+
+.blogTitle {
+  margin-bottom: 15px;
+  color: $base-text-color;
+  line-height: 1.1;
+}
+
+.blogTime {
+  margin-bottom: 15px;
+  color: $base-text-dark;
+}
+
+.blogContent {
+  margin-bottom: 45px;
+  line-height: 1.75;
+}
+
+.blogContent img.img-circle {
+  float: left;
+  margin-right: 15px;
+}
+
+.blogContent p {
+  color: $base-text-mid;
+}
+
+.blogTags {
+  margin-bottom: 85px;
+  color: $base-text-dark;
+}
+
+.blogTags a {
+  margin-bottom: 85px;
+  color: $anchor;
+  text-decoration: none;
+}
+
+.blogTags a:hover {
+  color: $anchor-hover;
+}
+
+.blogTags a:visited {
+  color: $anchor-visited;
+}
+
+.singleTitle .col-lg-6.col-lg-offset-2 {
+  margin-bottom: 15px;
+  color: $base-text-color;
+}
+
+span.posted-on {
+  color: $base-text-dark;
+}
+
+time.entry-date.published.updated {
+  color: $anchor;
+}
+
+time.entry-date.published.updated:hover {
+  color: $anchor-hover;
+}
+
+time.entry-date.published.updated:visited {
+  color: $anchor-visited;
+}
+
+span.byline {
+  color: $base-text-dark;
+}
+
+a.url.fn.n {
+  color: $anchor;
+  text-decoration: none;
+}
+
+a.url.fn.n:hover {
+  color: $anchor-hover;
+}
+
+a.url.fn.n:visited {
+  color: $anchor-visited;
+}
+
+div.entry-content {
+  margin-bottom: 45px;
+}
+
+div.entry-content img.img-circle {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+div.entry-content p {
+  color: $base-text-mid;
+  line-height: 1.75;
+}
+
+span.cat-links {
+  color: $base-text-dark;
+  display: block;
+  margin-bottom: 15px;
+}
+
+span.cat-links a {
+  color: $anchor;
+  text-decoration: none;
+}
+
+span.cat-links a:hover {
+  color: $anchor-hover;
+}
+
+span.cat-links a:visited {
+  color: $anchor-visited;
+}
+
+span.tags-links {
+  color: $base-text-dark;
+  display: block;
+  margin-bottom: 15px;
+}
+
+span.tags-links a {
+  color: $anchor;
+  text-decoration: none;
+}
+
+span.tags-links a:hover {
+  color: $anchor-hover;
+}
+
+span.tags-links a:visited {
+  color: $anchor-visited;
+}
+
+span.edit-link a {
+  color: $anchor;
+  text-decoration: none;
+}
+
+span.edit-link a:hover {
+  color: $anchor-hover;
+}
+
+span.edit-link a:visited {
+  color: $anchor-visited;
+}
+
+nav.navigation.post-navigation {
+  display: none;
+}
+
+div#comments.comments-area {
+  display: none;
+}
+
+.contactTitle h1 {
+  color: $base-text-color;
+}
+
+.contactContent {
+  color: $base-text-mid;
+}
+
+.contactContent input[type="text"], .contactContent input[type="email"],
+.contactContent textarea, .contactContent input[type="submit"] {
+  font-size: 16px !important;
+  background-color: $base-text-dark;
+}
+
+.site-footer {
+  margin-top: 45px;
+}
+
+div.row.copyright {
+  margin-top: 15px;
+}
+
+// Font Awesome Overrides
+a i.fa.fa-twitter-square.fa-3x, a i.fa.fa-facebook-square.fa-3x,
+a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-bitbucket-square.fa-3x  {
+  color: $anchor;
+}
+
+a:hover i.fa.fa-twitter-square.fa-3x, a:hover i.fa.fa-facebook-square.fa-3x,
+a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-bitbucket-square.fa-3x  {
+  color: $anchor-hover;
+}
+
+a:visited i.fa.fa-twitter-square.fa-3x, a:visited i.fa.fa-facebook-square.fa-3x,
+a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3x  {
+  color: $anchor-visited;
+}
+
+// Media Queries
+@media (min-width: 320px) and (max-width: 767px) {
+  .carousel-caption h1 {
+    display: none;
+  }
+
+  .carousel-caption p {
+    display: none;
+  }
+
+  .carousel-indicators {
+    display: none;
+  }
+
+  .contactContent input[type="text"], .contactContent input[type="email"],
+  textarea {
+    width: 100%;
+  }
+}
