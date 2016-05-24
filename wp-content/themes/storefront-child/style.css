@@ -15,3 +15,11 @@ Template: storefront
 .site-header {
 	background-color: #FFFFFF;
 }
+
+section.storefront-primary-navigation {
+	/*background-color: green;*/
+}
+
+#site-navigation ul li a {
+	color: #131315;
+}
