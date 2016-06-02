@@ -12,14 +12,31 @@ Template: storefront
 /* =Theme customization starts here
 -------------------------------------------------------------- */
 
-.site-header {
-	background-color: #FFFFFF;
+.img-circle {
+    border-radius: 50%;
+	float: left;
+	margin: 0 10px 0 0;
 }
 
-section.storefront-primary-navigation {
-	/*background-color: green;*/
+
+/* Media Queries */
+
+@media (max-width: 820px) {
+	.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
+		width: 100%;
+	}
+	
+	.wpcf7-form-control.wpcf7-text {
+		width: 100%;	
+	}
+
+	.wpcf7-form-control.wpcf7-textarea {
+		width: 100%;
+	}
 }
 
-#site-navigation ul li a {
-	color: #131315;
+@media (min-width: 820px) {
+	.wpcf7-form-control.wpcf7-textarea {
+		width: 60%;
+	}
 }

@@ -7,15 +7,29 @@
  * @package storefront
  */
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?> <?php storefront_html_tag_schema(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
-<?php wp_head(); ?>
+	<title>Tim Veedahl</title>
+	<meta name="description" content="Tim Veedahl is a freelance developer offering a variety of customizable themes for Wordpress, Magento, Drupal, Ghost, and Bootstrap for free and purchase." />
+	<meta name="keywords" content="Tim Veedahl, themes, Wordpress, Magento, Drupal, Ghost, Bootstrap, free, purchase" />
+	<meta name="author" content="Tim Veedahl">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="3 month">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');	
+		ga('create', 'UA-77392651-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
