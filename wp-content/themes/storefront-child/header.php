@@ -9,7 +9,7 @@
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> <?php storefront_html_tag_schema(); ?>>
+<html <?php language_attributes(); ?>>
 <head>
 	<title>Tim Veedahl</title>
 	<meta name="description" content="Tim Veedahl is a freelance developer offering a variety of customizable themes for Wordpress, Magento, Drupal, Ghost, and Bootstrap for free and purchase." />
