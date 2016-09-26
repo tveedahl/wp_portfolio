@@ -248,7 +248,7 @@ if ( ! function_exists( 'storefront_handheld_footer_bar' ) ) {
 	 * @since 2.0.0
 	 */
 	function storefront_handheld_footer_bar() {
-		$links = apply_filters( 'storefront_handheld_footer_bar_links', array(
+		$links = array(
 			'my-account' => array(
 				'priority' => 10,
 				'callback' => 'storefront_handheld_footer_bar_account_link',
@@ -261,9 +261,19 @@ if ( ! function_exists( 'storefront_handheld_footer_bar' ) ) {
 				'priority' => 30,
 				'callback' => 'storefront_handheld_footer_bar_cart_link',
 			),
-		) );
+		);
+
+		if ( wc_get_page_id( 'myaccount' ) === -1 ) {
+			unset( $links['my-account'] );
+		}
+
+		if ( wc_get_page_id( 'cart' ) === -1 ) {
+			unset( $links['cart'] );
+		}
+
+		$links = apply_filters( 'storefront_handheld_footer_bar_links', $links );
 		?>
-		<section class="storefront-handheld-footer-bar">
+		<div class="storefront-handheld-footer-bar">
 			<ul class="columns-<?php echo count( $links ); ?>">
 				<?php foreach ( $links as $key => $link ) : ?>
 					<li class="<?php echo esc_attr( $key ); ?>">
@@ -275,7 +285,7 @@ if ( ! function_exists( 'storefront_handheld_footer_bar' ) ) {
 					</li>
 				<?php endforeach; ?>
 			</ul>
-		</section>
+		</div>
 		<?php
 	}
 }
@@ -315,47 +325,59 @@ if ( ! function_exists( 'storefront_handheld_footer_bar_account_link' ) ) {
 	 */
 	function storefront_handheld_footer_bar_account_link() {
 		echo '<a href="' . esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ) . '">' . esc_attr__( 'My Account', 'storefront' ) . '</a>';
-  }
+	}
 }
 
 if ( ! function_exists( 'storefront_woocommerce_init_structured_data' ) ) {
-  /**
-   * Generate product category structured data...
-   * Hooked into the `woocommerce_before_shop_loop_item` action...
-   * Apply the `storefront_woocommerce_structured_data` filter hook for structured data customization...
-   */
-  function storefront_woocommerce_init_structured_data() {
-    if ( ! is_product_category() ) return;
-    global $product;
+	/**
+	 * Generate product category structured data...
+	 * Hooked into the `woocommerce_before_shop_loop_item` action...
+	 * Apply the `storefront_woocommerce_structured_data` filter hook for structured data customization...
+	 */
+	function storefront_woocommerce_init_structured_data() {
+		if ( ! is_product_category() ) {
+			return;
+		}
 
-    $json['@type']             = 'Product';
-    $json['name']              = get_the_title();
-    $json['image']             = wp_get_attachment_url( $product->get_image_id() );
-    $json['description']       = get_the_excerpt();
-    $json['sku']               = $product->get_sku();
-    $json['brand']             = array(
-      '@type'                  => 'Thing',
-      'name'                   => $product->get_attribute( __( 'brand', 'storefront' ) )
-    );
-    if ( $product->get_rating_count() ) {
-      $json['aggregateRating'] = array(
-        '@type'                => 'AggregateRating',
-        'ratingValue'          => $product->get_average_rating(),
-        'reviewCount'          => $product->get_rating_count()
-      );
-    }
-    $json['offers']            = array(
-      '@type'                  => 'Offer',
-      'priceCurrency'          => get_woocommerce_currency(),
-      'price'                  => $product->get_price(),
-      'itemCondition'          => 'http://schema.org/NewCondition',
-      'availability'           => 'http://schema.org/' . $stock = ( $product->is_in_stock ? 'InStock' : 'OutOfStock' ),
-      'seller'                 => array(
-        '@type'                => 'Organization',
-        'name'                 => get_bloginfo( 'name' )
-      )
-    );
-    if ( ! isset( $json ) ) return;
-    Storefront::set_structured_data( apply_filters( 'storefront_woocommerce_structured_data', $json ) );
-  }
+		global $product;
+
+		$json['@type']             = 'Product';
+		$json['@id']               = 'product-' . get_the_ID();
+		$json['name']              = get_the_title();
+		$json['image']             = wp_get_attachment_url( $product->get_image_id() );
+		$json['description']       = get_the_excerpt();
+		$json['url']               = get_the_permalink();
+		$json['sku']               = $product->get_sku();
+		$json['brand']             = array(
+			'@type'                  => 'Thing',
+			'name'                   => $product->get_attribute( __( 'brand', 'storefront' ) ),
+		);
+
+		if ( $product->get_rating_count() ) {
+			$json['aggregateRating'] = array(
+				'@type'                => 'AggregateRating',
+				'ratingValue'          => $product->get_average_rating(),
+				'ratingCount'          => $product->get_rating_count(),
+				'reviewCount'          => $product->get_review_count(),
+			);
+		}
+
+		$json['offers'] = array(
+			'@type'                  => 'Offer',
+			'priceCurrency'          => get_woocommerce_currency(),
+			'price'                  => $product->get_price(),
+			'itemCondition'          => 'http://schema.org/NewCondition',
+			'availability'           => 'http://schema.org/' . $stock = ( $product->is_in_stock() ? 'InStock' : 'OutOfStock' ),
+			'seller'                 => array(
+				'@type'                => 'Organization',
+				'name'                 => get_bloginfo( 'name' ),
+			),
+		);
+
+		if ( ! isset( $json ) ) {
+			return;
+		}
+
+		Storefront::set_structured_data( apply_filters( 'storefront_woocommerce_structured_data', $json ) );
+	}
 }

@@ -24,7 +24,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_action( 'customize_preview_init',          array( $this, 'customize_preview_js' ), 10 );
 			add_action( 'customize_register',              array( $this, 'customize_register' ), 10 );
 			add_filter( 'body_class',                      array( $this, 'layout_class' ) );
 			add_action( 'wp_enqueue_scripts',              array( $this, 'add_customizer_css' ), 130 );
@@ -67,14 +66,31 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 		 * Adds a value to each Storefront setting if one isn't already present.
 		 *
 		 * @uses get_storefront_default_setting_values()
-		 * @return void
 		 */
 		public function default_theme_mod_values() {
-			foreach ( Storefront_Customizer::get_storefront_default_setting_values() as $mod => $val ) {
-				add_filter( 'theme_mod_' . $mod, function( $setting ) use ( $val ) {
-					return $setting ? $setting : $val;
-				}, 10 );
+			foreach ( self::get_storefront_default_setting_values() as $mod => $val ) {
+				add_filter( 'theme_mod_' . $mod, array( $this, 'get_theme_mod_value' ), 10 );
 			}
+		}
+
+		/**
+		 * Get theme mod value.
+		 *
+		 * @param string $value
+		 * @return string
+		 */
+		public function get_theme_mod_value( $value ) {
+			$key = substr( current_filter(), 10 );
+
+			$set_theme_mods = get_theme_mods();
+
+			if ( isset( $set_theme_mods[ $key ] ) ) {
+				return $value;
+			}
+
+			$values = $this->get_storefront_default_setting_values();
+
+			return isset( $values[ $key ] ) ? $values[ $key ] : $value;
 		}
 
 		/**
@@ -83,10 +99,9 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 		 *
 		 * @param  array $wp_customize the Customizer object.
 		 * @uses   get_storefront_default_setting_values()
-		 * @return void
 		 */
 		public function edit_default_customizer_settings( $wp_customize ) {
-			foreach ( Storefront_Customizer::get_storefront_default_setting_values() as $mod => $val ) {
+			foreach ( self::get_storefront_default_setting_values() as $mod => $val ) {
 				$wp_customize->get_setting( $mod )->default = $val;
 			}
 		}
@@ -116,8 +131,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 		 * @since  1.0.0
 		 */
 		public function customize_register( $wp_customize ) {
-			$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-			$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 			// Move background color setting alongside background image.
 			$wp_customize->get_control( 'background_color' )->section   = 'background_image';
@@ -131,6 +144,33 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->get_section( 'header_image' )->title         = __( 'Header', 'storefront' );
 			$wp_customize->get_section( 'header_image' )->priority      = 25;
 
+			// Selective refresh.
+			if ( function_exists( 'add_partial' ) ) {
+				$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+				$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+
+				$wp_customize->selective_refresh->add_partial( 'custom_logo', array(
+					'selector'        => '.site-branding',
+					'render_callback' => function() {
+						storefront_site_title_or_logo();
+					},
+				) );
+
+				$wp_customize->selective_refresh->add_partial( 'blogname', array(
+					'selector'        => '.site-title.beta a',
+					'render_callback' => function() {
+						bloginfo( 'name' );
+					},
+				) );
+
+				$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+					'selector'        => '.site-description',
+					'render_callback' => function() {
+						bloginfo( 'description' );
+					},
+				) );
+			}
+
 			/**
 			 * Custom controls
 			 */
@@ -143,7 +183,7 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 
 			/**
 			 * Add the typography section
-		     */
+			 */
 			$wp_customize->add_section( 'storefront_typography' , array(
 				'title'      			=> __( 'Typography', 'storefront' ),
 				'priority'   			=> 45,
@@ -155,7 +195,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_heading_color', array(
 				'default'           	=> apply_filters( 'storefront_default_heading_color', '#484c51' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport'				=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_heading_color', array(
@@ -171,7 +210,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_text_color', array(
 				'default'           	=> apply_filters( 'storefront_default_text_color', '#43454b' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport'				=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_text_color', array(
@@ -209,7 +247,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_header_background_color', array(
 				'default'           	=> apply_filters( 'storefront_default_header_background_color', '#2c2d33' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport'				=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_header_background_color', array(
@@ -225,7 +262,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_header_text_color', array(
 				'default'           	=> apply_filters( 'storefront_default_header_text_color', '#9aa0a7' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport'				=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_header_text_color', array(
@@ -241,7 +277,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_header_link_color', array(
 				'default'           	=> apply_filters( 'storefront_default_header_link_color', '#d5d9db' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport'				=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_header_link_color', array(
@@ -266,7 +301,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_footer_background_color', array(
 				'default'           	=> apply_filters( 'storefront_default_footer_background_color', '#f0f0f0' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport'				=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_footer_background_color', array(
@@ -282,7 +316,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_footer_heading_color', array(
 				'default'           	=> apply_filters( 'storefront_default_footer_heading_color', '#494c50' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport' 			=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_footer_heading_color', array(
@@ -298,7 +331,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_footer_text_color', array(
 				'default'           	=> apply_filters( 'storefront_default_footer_text_color', '#61656b' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport'				=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_footer_text_color', array(
@@ -314,7 +346,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			$wp_customize->add_setting( 'storefront_footer_link_color', array(
 				'default'           	=> apply_filters( 'storefront_default_footer_link_color', '#2c2d33' ),
 				'sanitize_callback' 	=> 'sanitize_hex_color',
-				'transport'				=> 'postMessage',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'storefront_footer_link_color', array(
@@ -628,15 +659,15 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			}
 
 			#order_review,
-			#payment .payment_methods li .payment_box {
+			#payment .payment_methods > li .payment_box {
 				background-color: ' . $storefront_theme_mods['background_color'] . ';
 			}
 
-			#payment .payment_methods li {
+			#payment .payment_methods > li {
 				background-color: ' . storefront_adjust_color_brightness( $storefront_theme_mods['background_color'], -5 ) . ';
 			}
 
-			#payment .payment_methods li:hover {
+			#payment .payment_methods > li:hover {
 				background-color: ' . storefront_adjust_color_brightness( $storefront_theme_mods['background_color'], -10 ) . ';
 			}
 
@@ -769,15 +800,6 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 				wp_add_inline_style( 'storefront-style', get_theme_mod( 'storefront_styles' ) );
 				wp_add_inline_style( 'storefront-woocommerce-style', get_theme_mod( 'storefront_woocommerce_styles' ) );
 			}
-		}
-
-		/**
-		 * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
-		 *
-		 * @since  1.0.0
-		 */
-		public function customize_preview_js() {
-			wp_enqueue_script( 'storefront-customizer', get_template_directory_uri() . '/assets/js/customizer/customizer.min.js', array( 'customize-preview' ), '1.16', true );
 		}
 
 		/**
