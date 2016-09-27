@@ -1,0 +1,422 @@
+// Imports
+@import "_bootstrap";
+@import "_colors";
+
+// Bootstrap Overrides
+.navbar {
+    background: $bg-main;
+}
+
+.navbar-inverse {
+    border: none;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border: none;
+}
+
+.navbar-nav > li {
+    position: relative;
+    top: 30px;
+}
+
+.navbar-nav > li > a {
+    color: $anchor !important;
+}
+
+.navbar-nav > li > a:hover {
+    color: $anchor-hover !important;
+}
+
+.navbar-nav > li > a:visited {
+    color: $anchor-visited !important;
+}
+
+.navbar-toggle {
+    background: $base_text-color;
+    position: relative;
+    top: 25px;
+}
+
+.navbar-collapse.in {
+    overflow-y: hidden;
+}
+
+div#navbar.navbar-collapse.collapse.in {
+    height: 190px;
+}
+
+div.carousel-caption.first {
+	bottom: 75px !important;
+}
+
+div.carousel-caption.second {
+	bottom: 35px !important;
+}
+
+div.carousel-caption.third {
+	bottom: 95px !important;
+}
+
+.carousel-caption p {
+    font-size: 21px;
+}
+
+// Main
+body {
+    background: $bg-main !important;
+    font-family: myriad_pro_reg;
+    font-size: 16px !important;
+}
+
+#myCarousel {
+    margin-bottom: 40px;
+    margin: 40px 0 40px 0;
+}
+
+img.img-circle {
+    position: relative;
+    left: 100px;    
+}
+
+.timeline-Footer {
+    display: none;
+}
+
+i.fa.fa-github.fa-2x {
+    margin: 0 5px 0 0;
+}
+
+div#repoHead {
+    background: #F5F5F5;
+    border: 1px solid #D8D8D8;
+    border-radius: 3px;
+    font-weight: bolder;
+}
+
+#repoHead span {
+    position: relative;
+    bottom: 5px;
+}
+
+div#repoGroup {
+    font-size: 16px;
+    border: 1px solid #D8D8D8;
+    border-radius: 3px;
+}
+
+div.repoLink i.fa.fa-code {
+    margin: 0 5px 0 5px;
+}
+
+.repoLink {
+    border-bottom: 2px solid #F5F5F5;
+    margin: 10px 0 10px 0;
+}
+
+.repoLinkNoBord {
+    margin: 10px 0 10px 0;
+}
+
+div.repoLinkNoBord i.fa.fa-code {
+    margin: 0 5px 0 5px;
+}
+
+.repoLanguage {
+    float: right;
+    margin: 0 5px 0 0;
+}
+
+.col-lg-4 h2 {
+    color: $base-text-color;
+    font-size: 25px;
+    text-align: center;
+}
+
+.col-lg-4 p {
+    color: $base-text-color;
+}
+
+a.more-link {
+    color: $anchor;
+    text-decoration: none;
+}
+
+a.more-link:hover {
+    color: $anchor-hover;
+}
+
+a.more-link:visited {
+    color: $anchor-visited;
+}
+
+span.page-numbers.current {
+    color: $anchor-hover;
+}
+
+a.page-numbers {
+    color: $anchor;
+    text-decoration: none;
+}
+
+a.page-numbers:hover {
+    color: $anchor-hover;
+}
+
+a.page-numbers:visited {
+    color: $anchor-visited;
+}
+
+.site-info {
+    color: $base-text-color;
+}
+
+.pImage {
+    float: left;
+    margin-right: 5px;
+}
+
+h1.text-center {
+    color: $base_text-color;
+    margin: 0 0 40px 0;
+}
+
+.about p {
+    line-height: 1.75;
+    color: $base-text-mid !important;
+}
+
+.blogTitle {
+    margin-bottom: 15px;
+    color: $base-text-color;
+    line-height: 1.1;
+}
+
+.blogTime {
+    margin-bottom: 15px;
+    color: $base-text-light;
+}
+
+.blogContent {
+    margin-bottom: 45px;
+    line-height: 1.75;
+}
+
+.blogContent img.img-circle {
+    float: left;
+    margin-right: 15px;
+}
+
+.blogContent p {
+    color: $base-text-mid;
+}
+
+.blogTags {
+    margin-bottom: 85px;
+    color: $base-text-light;
+}
+
+.blogTags a {
+    margin-bottom: 85px;
+    color: $anchor;
+    text-decoration: none;
+}
+
+.blogTags a:hover {
+    color: $anchor-hover;
+}
+
+.blogTags a:visited {
+    color: $anchor-visited;
+}
+
+.singleTitle .col-lg-6.col-lg-offset-2 {
+    margin-bottom: 15px;
+    color: $base-text-color;
+}
+
+span.posted-on {
+    color: $base-text-light;
+}
+
+time.entry-date.published.updated {
+    color: $anchor;
+    text-decoration: none;
+}
+
+time.entry-date.published.updated:hover {
+    color: $anchor-hover;
+}
+
+time.entry-date.published.updated:visited {
+    color: $anchor-visited;
+}
+
+span.byline {
+    color: $base-text-light;
+}
+
+a.url.fn.n {
+    color: $anchor;
+    text-decoration: none;
+}
+
+a.url.fn.n:hover {
+    color: $anchor-hover;
+}
+
+a.url.fn.n:visited {
+    color: $anchor-visited;
+}
+
+div.entry-content {
+    margin-bottom: 45px;
+}
+
+div.entry-content img.img-circle {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+div.entry-content p {
+    color: $base-text-mid;
+    line-height: 1.75;
+}
+
+span.cat-links {
+    color: $base-text-light;
+    display: block;
+    margin-bottom: 15px;
+}
+
+span.cat-links a {
+    color: $anchor;
+    text-decoration: none;
+}
+
+span.cat-links a:hover {
+    color: $anchor-hover;
+}
+
+span.cat-links a:visited {
+    color: $anchor-visited;
+}
+
+span.tags-links {
+    color: $base-text-light;
+    display: block;
+    margin-bottom: 15px;
+}
+
+span.tags-links a {
+    color: $anchor;
+    text-decoration: none;
+}
+
+span.tags-links a:hover {
+    color: $anchor-hover;
+}
+
+span.tags-links a:visited {
+    color: $anchor-visited;
+}
+
+span.edit-link a {
+    color: $anchor;
+    text-decoration: none;
+}
+
+span.edit-link a:hover {
+    color: $anchor-hover;
+}
+
+span.edit-link a:visited {
+    color: $anchor-visited;
+}
+
+nav.navigation.post-navigation {
+    display: none;
+}
+
+div#comments.comments-area {
+    display: none;
+}
+
+.contactTitle h1 {
+    color: $base-text-color;
+}
+
+.contactContent {
+    color: $base-text-mid;
+}
+
+.contactContent input[type="text"], .contactContent input[type="email"],
+.contactContent textarea {
+    width: 85%;
+    font-size: 16px !important;
+    background-color: #eae8e5;
+}
+
+.contactContent input[type="submit"] {
+    font-size: 16px;
+}
+
+.site-footer {
+    margin-top: 15px;
+}
+
+div.row.copyright {
+    margin-top: 15px;
+}
+
+// Font Awesome Overrides
+a i.fa.fa-twitter-square.fa-3x, a i.fa.fa-facebook-square.fa-3x,
+a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-bitbucket-square.fa-3x  {
+    color: $anchor;
+}
+
+a:hover i.fa.fa-twitter-square.fa-3x, a:hover i.fa.fa-facebook-square.fa-3x,
+a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-bitbucket-square.fa-3x  {
+    color: $anchor-hover;
+}
+
+a:visited i.fa.fa-twitter-square.fa-3x, a:visited i.fa.fa-facebook-square.fa-3x,
+a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3x  {
+    color: $anchor-visited;
+}
+
+// Media Queries
+@media (max-width: 992px) {
+    .contactContent input[type="text"], .contactContent input[type="email"],
+    .contactContent textarea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+        text-align: center;
+    }
+
+    div[aria-expanded="true"] {
+        .site-content {
+            padding-top: 145px;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .carousel-caption h1 {
+        display: none;
+    }
+
+    .carousel-caption p {
+        display: none;
+    }
+
+    .carousel-indicators {
+        display: none;
+    }
+}
