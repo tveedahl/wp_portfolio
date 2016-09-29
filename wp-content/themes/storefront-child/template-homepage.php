@@ -65,21 +65,21 @@
     <h1 class="col-lg-12 text-center">What I Do</h1>
 </div>
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-4 text-center">
         <img class="img-circle" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/dash_analytics_circ_v1.jpg" />
         <h2>Dashboards/Analytics</h2>
         <p>
             I think data is important and impacts almost everything in our lives. In the past, I have developed a variety of custom data-driven dashboards and can work with you to do this as well. My education and experience also makes me capable of helping you with your analytics needs.
         </p>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 text-center">
         <img class="img-circle" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/front_back_circ_v1.jpg" />
         <h2>Frontend/Backend Development</h2>
         <p>
             My background includes having worked with a variety of frontend/backend content management systems, frameworks, and programming languages. I am also able to learn new technical skills quickly.
         </p>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 text-center">
         <img class="img-circle" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/mobile_circ_v1.jpg" />
         <h2>Mobile Applications</h2>
         <p>
