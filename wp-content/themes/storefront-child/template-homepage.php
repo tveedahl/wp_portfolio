@@ -116,13 +116,22 @@
     <div class="col-md-5">
         <?php
             $user = 'tveedahl';
-            $token = 'a67a675808be16a4bfbdd1a32a6535b719a06e71';
+            $token = 'bd4d707603a146be768e4d2e051161d71cbcb466';
             $curl_url = 'https://api.github.com/users/' . $user . '/repos';
             $curl_token_auth = 'Authorization: token ' . $token;
             $ch = curl_init($curl_url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent: Awesome-Octocat-App', $curl_token_auth));
+            curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.52 Safari/537.17');
+            curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_VERBOSE, 1);
             $output = curl_exec($ch);
+            if ($output === false) {
+                $output = curl_error($ch);
+                echo stripslashes($output);
+                curl_close($ch);
+            } 
             curl_close($ch);
             $output = json_decode($output);
             $repoItr = 1;
