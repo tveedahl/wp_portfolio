@@ -13,7 +13,7 @@
 <head>
 	<title>Tim Veedahl</title>
 	<meta name="description" content="Tim Veedahl is a freelance developer offering a variety of customizable themes for Wordpress, Magento, Drupal, Ghost, and Bootstrap for free and purchase." />
-	<meta name="keywords" content="Tim Veedahl, themes, Wordpress, Magento, Drupal, Ghost, Bootstrap, free, purchase" />
+	<meta name="keywords" content="Tim Veedahl, Wordpress, Bootstrap, responsive, analytics, dashboards, mobile app development" />
 	<meta name="author" content="Tim Veedahl">
 	<meta name="robots" content="index, follow">
 	<meta name="revisit-after" content="3 month">
