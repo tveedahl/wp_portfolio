@@ -163,7 +163,7 @@
             I maintain an active LinkedIn profile. Check it out to get a better sense of my work history and skill set.
         </p>
     </div>
-    <div class="col-md-5 col-md-pull-7">
+    <div class="col-md-5 col-md-pull-7">    
         <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
         <script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/timveedahl" data-format="inline" data-related="false"></script>
     </div>
