@@ -9288,8 +9288,8 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
 
   /* line 422, ../sass/main.scss */
   span.IN-widget {
-    width: 102%;
+    width: 110%;
     position: relative;
-    right: 5px;
+    right: 15px;
   }
 }
