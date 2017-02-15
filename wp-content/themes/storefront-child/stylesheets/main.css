@@ -9225,68 +9225,73 @@ div#comments.comments-area {
 }
 
 /* line 365, ../sass/main.scss */
+input.wpcf7-form-control.wpcf7-submit {
+  margin-top: 10px;
+}
+
+/* line 369, ../sass/main.scss */
 .site-footer {
   margin-top: 15px;
 }
 
-/* line 369, ../sass/main.scss */
+/* line 373, ../sass/main.scss */
 div.row.copyright {
   margin-top: 15px;
 }
 
-/* line 374, ../sass/main.scss */
+/* line 378, ../sass/main.scss */
 a i.fa.fa-twitter-square.fa-3x, a i.fa.fa-facebook-square.fa-3x,
 a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-bitbucket-square.fa-3x {
   color: #252839;
 }
 
-/* line 379, ../sass/main.scss */
+/* line 383, ../sass/main.scss */
 a:hover i.fa.fa-twitter-square.fa-3x, a:hover i.fa.fa-facebook-square.fa-3x,
 a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-bitbucket-square.fa-3x {
   color: #466bbc;
 }
 
-/* line 384, ../sass/main.scss */
+/* line 388, ../sass/main.scss */
 a:visited i.fa.fa-twitter-square.fa-3x, a:visited i.fa.fa-facebook-square.fa-3x,
 a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3x {
   color: #7892cf;
 }
 
 @media (max-width: 992px) {
-  /* line 391, ../sass/main.scss */
+  /* line 395, ../sass/main.scss */
   .contactContent input[type="text"], .contactContent input[type="email"],
   .contactContent textarea {
     width: 100%;
   }
 }
 @media (max-width: 767px) {
-  /* line 398, ../sass/main.scss */
+  /* line 402, ../sass/main.scss */
   .navbar-nav > li > a {
     text-align: center;
   }
 
-  /* line 403, ../sass/main.scss */
+  /* line 407, ../sass/main.scss */
   div[aria-expanded="true"] .site-content {
     padding-top: 145px;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
-  /* line 410, ../sass/main.scss */
+  /* line 414, ../sass/main.scss */
   .carousel-caption h1 {
     display: none;
   }
 
-  /* line 414, ../sass/main.scss */
+  /* line 418, ../sass/main.scss */
   .carousel-caption p {
     display: none;
   }
 
-  /* line 418, ../sass/main.scss */
+  /* line 422, ../sass/main.scss */
   .carousel-indicators {
     display: none;
   }
 
-  /* line 422, ../sass/main.scss */
+  /* line 426, ../sass/main.scss */
   span.IN-widget {
     width: 110%;
     position: relative;
