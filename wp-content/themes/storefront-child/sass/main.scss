@@ -181,6 +181,15 @@ h1.text-center {
     margin: 0 0 40px 0;
 }
 
+img.avatar.avatar-128.photo {
+    float: left;
+}
+
+div.author a {
+    position: relative;
+    right: 10px;
+}
+
 .about p {
     line-height: 1.75;
     color: $base-text-mid !important;
