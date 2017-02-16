@@ -12,11 +12,11 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<title>Tim Veedahl</title>
-	<meta name="description" content="Tim Veedahl is a freelance developer offering a variety of customizable themes for Wordpress, Magento, Drupal, Ghost, and Bootstrap for free and purchase." />
-	<meta name="keywords" content="Tim Veedahl, Wordpress, Bootstrap, responsive, analytics, dashboards, mobile app development" />
+	<meta name="description" content="I am a experienced web, mobile, and data software developer. In particular, I am adept working with technologies such as Wordpress, Magento. as well as those that are Python based. I am also knowledgeable regarding responsive design and hybrid mobile development. Additionally, I am passionate about data and the many ways it is utilized to positively impact our lives. I have completed degrees in both Software Development and Sociology and am seeking part-time/freelance development opportunities." />
+	<meta name="keywords" content="data visualization engineer, google analytics developer, mobile developer, mobile developers, responsive web development, wordpress developer, front end developer, front-end developer, back end developer" />
 	<meta name="author" content="Tim Veedahl">
 	<meta name="robots" content="index, follow">
-	<meta name="revisit-after" content="3 month">
+	<meta name="revisit-after" content="1 day">
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
