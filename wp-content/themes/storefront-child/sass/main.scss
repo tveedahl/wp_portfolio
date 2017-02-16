@@ -70,6 +70,18 @@ body {
     font-size: 16px !important;
 }
 
+a {
+    color: $anchor;
+}
+
+a:hover {
+    color: $anchor-hover;
+}
+
+a:visited {
+    color: $anchor-visited;
+}
+
 #myCarousel {
     margin-bottom: 40px;
     margin: 40px 0 40px 0;
@@ -185,14 +197,23 @@ img.avatar.avatar-128.photo {
     float: left;
 }
 
+.author {
+    width: 255px;
+}
+
 div.author a {
     position: relative;
-    right: 10px;
+    right: 30px;
+}
+
+div.cat-links a {
+    position: relative;
+    right: 21px;
 }
 
 .about p {
     line-height: 1.75;
-    color: $base-text-mid !important;
+    color: $base-text-color !important;
 }
 
 .blogTitle {
@@ -217,7 +238,7 @@ div.author a {
 }
 
 .blogContent p {
-    color: $base-text-mid;
+    color: $base-text-color;
 }
 
 .blogTags {
@@ -289,7 +310,7 @@ div.entry-content img.img-circle {
 }
 
 div.entry-content p {
-    color: $base-text-mid;
+    color: $base-text-color;
     line-height: 1.75;
 }
 
@@ -357,7 +378,7 @@ div#comments.comments-area {
 }
 
 .contactContent {
-    color: $base-text-mid;
+    color: $base-text-color;
 }
 
 .contactContent input[type="text"], .contactContent input[type="email"],
@@ -436,5 +457,18 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
         width: 110%;
         position: relative;
         right: 15px;
+    }
+
+    img.avatar.avatar-128.photo {
+        float: left;
+    }
+
+    .author {
+        width: 278px;
+    }
+
+    div.cat-links a {
+        //left: auto;
+        //right: 23px;
     }
 }
