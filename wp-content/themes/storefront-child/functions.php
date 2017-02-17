@@ -10,7 +10,7 @@ function custom_remove_footer_credit () {
 function custom_storefront_credit() {
 	?>
 	<div class="site-info">
-		&copy; <?php echo ' ' . get_the_date( 'Y' ) . ' - Tim Veedahl'; ?>
+		&copy; <?php echo ' ' . date("Y") . ' - Tim Veedahl'; ?>
 	</div><!-- .site-info -->
 	<?php
 }
