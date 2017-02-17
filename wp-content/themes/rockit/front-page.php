@@ -8,7 +8,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img class="first-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/rocket_launch_v2.jpg" />
+                <img class="first-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner_1_v1.jpg" />
                 <div class="container">
                     <div class="carousel-caption first">
                         <h1>Astronomy compels the soul to look upward.</h1>
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="item">
-                <img class="second-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/starry_horizon_v2.jpg" />
+                <img class="second-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner_2_v1.jpg" />
                 <div class="container">
                     <div class="carousel-caption second">
                         <h1>We want to explore.</h1>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="item">
-                <img class="third-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/galaxy_v2.jpg" />
+                <img class="third-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner_3_v1.jpg" />
                 <div class="container">
                     <div class="carousel-caption third">
                         <h1>Space, the final frontier.</h1>
