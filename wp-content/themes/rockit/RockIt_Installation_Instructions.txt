@@ -3,13 +3,14 @@
 
 1. Unzip your downloaded version of rockit_v1.0.zip
 2. Upload/FTP extracted rockit_v1.0 folder to ../wp-content/themes within your existing Wordpress instance. You may need to consult your web host regarding instructions as to how to do this
-3. Once your rockit_v1.0 folder has been uploaded the correct location, login to your Wordpress instance’s admin.
+3. Once your rockit_v2.0 folder has been uploaded the correct location, login to your Wordpress instance’s admin.
 4. After logging in, click on Appearance > Themes within your admin’s navigation on the left
 5. Locate the newly added RockIt screenshot and click its Activate button
 6. Once activated, the following substeps should also be completed to ensure your new theme works correctly:
-   1. The correct permalink structure needs to be set within your Wordpress admin instance in order for your RockIt theme’s pages to render correctly. Go to Settings > Permalinks and ensure the Post name option under Common Settings has been selected and the setting saved. 
-   2. Required Plugins (i.e. Contact Form 7, Add Meta Tags, and Google Analyticator) should be activated, installed, and updated as instructed by prompts at the top of your admin screen. Initial versions of these plugins are included with your theme.
+   a) The correct permalink structure needs to be set within your Wordpress admin instance in order for your RockIt theme’s pages to render correctly. Go to Settings > Permalinks and ensure the Post name option under Common Settings has been selected and the setting saved.
+   b) Required Plugins (i.e. Contact Form 7, Add Meta Tags, and Google Analyticator) should be activated, installed, and updated as instructed by prompts at the top of your admin screen. Initial versions of these plugins are included with your theme.
       1. The Contact Form 7 plugin can be configured by clicking on the Contact Form 7 link in the left navigation. For the plugin to work correctly, a new contact form must be created and its shortcode copied to the Contact CMS page and published/updated. If done correctly, you should be able to navigate to the theme’s contact page and see your newly added contact form.
       2. The Add Meta Tags plugin can be configured by clicking on Settings > Metadata and completing/saving whichever metadata for your site you choose.
       3. The Google Analyticator plugin can be configured by clicking its link in the left admin navigation and following/saving the specified instructions.
-1. Once all of the above is complete, your new theme should be fully functional providing your existing Wordpress instance is set up and functioning correctly.
+7. Once all of the above is complete, your new theme should be fully functional providing your existing Wordpress instance is set up and functioning correctly.
+8. In the event that the initial homepage pages don't appear, they should after the page is refreshed.
