@@ -22,7 +22,7 @@ function rockit_setup() {
 	 * If you're building a theme based on Rockit, use a find and replace
 	 * to change 'rockit' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'rockit', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'tgmpa', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -125,11 +125,6 @@ function rockit_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rockit_scripts' );
-
-/**
- * Disable WordPress Admin Bar for all users but admins.
- */
-show_admin_bar(false);
 
 /**
  * Implement the Custom Header feature.

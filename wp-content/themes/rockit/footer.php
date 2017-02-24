@@ -15,10 +15,10 @@
         <div class="site-info text-center">
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-4">
-                    <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a>
-                    <a href="http://facebook.com" target="_blank"><i class="fa fa-facebook-square fa-3x"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-3x"></i></a>
-                    <a href="https://bitbucket.org/" target="_blank"><i class="fa fa-bitbucket-square fa-3x"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-facebook-square fa-3x"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-linkedin-square fa-3x"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-bitbucket-square fa-3x"></i></a>
                 </div>
             </div>
             <div class="row copyright">

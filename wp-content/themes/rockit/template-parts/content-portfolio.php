@@ -81,9 +81,7 @@
             /**
              * Refresh current page content
              */
-            echo '<script type="text/javascript">';
-                echo 'location.reload()';
-            echo '</script>';
+            header("Refresh:0");
         }
     } else {
         /**
