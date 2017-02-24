@@ -13,4 +13,3 @@
       2. The Add Meta Tags plugin can be configured by clicking on Settings > Metadata and completing/saving whichever metadata for your site you choose.
       3. The Google Analyticator plugin can be configured by clicking its link in the left admin navigation and following/saving the specified instructions.
 7. Once all of the above is complete, your new theme should be fully functional providing your existing Wordpress instance is set up and functioning correctly.
-8. In the event that the initial homepage pages don't appear, they should after the page is refreshed.
