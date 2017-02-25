@@ -151,34 +151,35 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/**
+* Check if necessary theme plugins are installed, show error messages otherwise
+*/
 add_action('admin_notices', 'showAdminMessages');
 function showAdminMessages()
 {
 	$plugin_messages = array();
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-    // Download the Add Meta Tags
-	if(!is_plugin_active( 'add-meta-tags/add-meta-tags.php' ))
+    // Download the Meta Tag Manager plugin
+	if(!is_plugin_active( 'meta-tag-manager/meta-tag-manager.php' ))
 	{
-		$plugin_messages[] = 'This theme requires you to install Add Meta Tags plugin, <a href="https://wordpress.org/plugins/add-meta-tags/" target="_blank">download it from here</a>.';
+		$plugin_messages[] = 'This theme requires you to install the Meta Tag Manager plugin, <a href="https://wordpress.org/plugins-wp/meta-tag-manager/" target="_blank">download it from here</a>.';
 	}
 	// Download the Contact Form 7 plugin
 	if(!is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ))
 	{
-		$plugin_messages[] = 'This theme requires you to install the Contact Form 7 plugin, <a href="https://wordpress.org/plugins/contact-form-7/" target="_blank">download it from here</a>.';
+		$plugin_messages[] = 'This theme requires you to install the Contact Form 7 plugin, <a href="https://wordpress.org/plugins-wp/contact-form-7/" target="_blank">download it from here</a>.';
 	}
     // Download the Google Analyticator plugin
 	if(!is_plugin_active( 'google-analyticator/google-analyticator.php' ))
 	{
-		$plugin_messages[] = 'This theme requires you to install the Google Analyticator plugin, <a href="https://wordpress.org/plugins/google-analyticator/" target="_blank">download it from here</a>.';
+		$plugin_messages[] = 'This theme requires you to install the Google Analyticator plugin, <a href="https://wordpress.org/plugins-wp/google-analyticator/" target="_blank">download it from here</a>.';
 	}
 	if(count($plugin_messages) > 0)
 	{
-		echo '<div id="message" class="error">';
-			foreach($plugin_messages as $message)
-			{
-				echo '<strong>'. $message . '</strong>';
-			}
-		echo '</div>';
+        foreach($plugin_messages as $message)
+        {
+            echo '<div class="error"><strong>'. $message . '</strong><br /></div>';
+        }
 	}
 }
 
