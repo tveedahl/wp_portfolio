@@ -61,10 +61,9 @@
             /**
              * Create dummy posts if none exist
              */
-            global $wp_filesystem;
             $posts_json_path = get_template_directory_uri() . "/data/posts.json";
-            $posts_contents = $wp_filesystem->get_contents($posts_json_path);
-            $posts = json_decode($posts_contents);
+            $posts_contents = wp_remote_get($posts_json_path);
+            $posts = json_decode($posts_contents["body"]);
             $portfolio_id = get_cat_id("Portfolio");
             foreach ($posts as $post_data) {
                 foreach ($post_data as $post) {
