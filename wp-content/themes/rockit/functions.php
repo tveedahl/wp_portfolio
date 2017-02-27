@@ -154,8 +154,7 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
 * Check if necessary theme plugins are installed, show error messages otherwise
 */
-add_action('admin_notices', 'showAdminMessages');
-function showAdminMessages()
+function rockit_showAdminMessages()
 {
 	$plugin_messages = array();
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -178,21 +177,18 @@ function showAdminMessages()
 	{
         foreach($plugin_messages as $message)
         {
-            echo '<div class="error"><strong>'. $message . '</strong><br /></div>';
+            echo '<div class="notice notice-error is-dismissible"><p>'. $message . '</p></div>';
         }
 	}
 }
-
-/**
- * Programmatically create necessary site pages
-*/
+add_action('admin_notices', 'rockit_showAdminMessages');
 
 /**
  * Setup a function to check if these pages exist
  */
-function the_slug_exists($post_name) {
-    global $wpdb;
-    if($wpdb->get_row("SELECT post_name FROM wp_posts WHERE post_name = '" . $post_name . "'", 'ARRAY_A')) {
+function rockit_the_slug_exists($post_name) {
+    global $rockit_wpdb;
+    if($rockit_wpdb->get_row("SELECT post_name FROM wp_posts WHERE post_name = '" . $post_name . "'", 'ARRAY_A')) {
         return true;
     } else {
         return false;
@@ -214,7 +210,7 @@ if (isset($_GET['activated']) && is_admin()) {
         //'post_author' => 1,
         'post_slug' => 'blog'
     );
-    if (!isset($blog_page_check->ID) && !the_slug_exists('about')) {
+    if (!isset($blog_page_check->ID) && !rockit_the_slug_exists('about')) {
         $blog_page_id = wp_insert_post($blog_page);
     }
 }
@@ -234,7 +230,7 @@ if (isset($_GET['activated']) && is_admin()) {
         //'post_author' => 1,
         'post_slug' => 'blog'
     );
-    if (!isset($blog_page_check->ID) && !the_slug_exists('contact')) {
+    if (!isset($blog_page_check->ID) && !rockit_the_slug_exists('contact')) {
         $blog_page_id = wp_insert_post($blog_page);
     }
 }
