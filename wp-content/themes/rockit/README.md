@@ -17,3 +17,6 @@ A creative professional Wordpress portfolio theme built using Underscores
 * Updated admin plugin alert notification classes and made them dismissible
 * Updated theme to include all external resources (i.e. Font Awesome) from within theme
 * Removed style.css Theme URI 
+* Enqueued theme stylesheets within functions.php versus header.php includes
+* Enqueued theme scripts within functions.php versus footer.php includes
+* Removed favicon include within header.php
