@@ -192,14 +192,14 @@ add_action('admin_notices', 'rockit_showAdminMessages');
 /**
  * Setup a function to check if these pages exist
  */
-function rockit_the_slug_exists($post_name) {
+/*function rockit_the_slug_exists($post_name) {
     global $rockit_wpdb;
     if($rockit_wpdb->get_row("SELECT post_name FROM wp_posts WHERE post_name = '" . $post_name . "'", 'ARRAY_A')) {
         return true;
     } else {
         return false;
     }
-}
+}*/
 
 /**
  * Create the About page
@@ -216,7 +216,10 @@ if (isset($_GET['activated']) && is_admin()) {
         //'post_author' => 1,
         'post_slug' => 'blog'
     );
-    if (!isset($blog_page_check->ID) && !rockit_the_slug_exists('about')) {
+    /*if (!isset($blog_page_check->ID) && !rockit_the_slug_exists('about')) {
+        $blog_page_id = wp_insert_post($blog_page);
+    }*/
+    if (!isset($blog_page_check->ID)) {
         $blog_page_id = wp_insert_post($blog_page);
     }
 }
@@ -236,7 +239,10 @@ if (isset($_GET['activated']) && is_admin()) {
         //'post_author' => 1,
         'post_slug' => 'blog'
     );
-    if (!isset($blog_page_check->ID) && !rockit_the_slug_exists('contact')) {
+    /*if (!isset($blog_page_check->ID) && !rockit_the_slug_exists('contact')) {
+        $blog_page_id = wp_insert_post($blog_page);
+    }*/
+    if (!isset($blog_page_check->ID)) {
         $blog_page_id = wp_insert_post($blog_page);
     }
 }
@@ -262,4 +268,3 @@ if ($term !== 0 && $term !== null) {
         )
     );
 }
-
