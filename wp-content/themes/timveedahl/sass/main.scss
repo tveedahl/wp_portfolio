@@ -303,15 +303,22 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
 // Media Queries
 @media (min-width: 320px) and (max-width: 767px) {
     .nav {
-        height: 140px;
+        position: relative;
+        top: 30px;
+        height: 130px;
+    }
+
+    .nav > li {
+        text-align: center;
+    }
+
+    .nav > li > a {
+        top: 0px !important;
     }
 
     #aboutNav {
-        left: 35px;
-    }
-
-    #blogNav, #contactNav {
-        text-align: center;
+        position: relative;
+        right: 45px;
     }
 
     .carousel-caption h1 {

@@ -9128,35 +9128,43 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
 @media (min-width: 320px) and (max-width: 767px) {
   /* line 305, ../sass/main.scss */
   .nav {
-    height: 140px;
+    position: relative;
+    top: 30px;
+    height: 130px;
   }
 
-  /* line 309, ../sass/main.scss */
-  #aboutNav {
-    left: 35px;
-  }
-
-  /* line 313, ../sass/main.scss */
-  #blogNav, #contactNav {
+  /* line 311, ../sass/main.scss */
+  .nav > li {
     text-align: center;
   }
 
-  /* line 317, ../sass/main.scss */
+  /* line 315, ../sass/main.scss */
+  .nav > li > a {
+    top: 0px !important;
+  }
+
+  /* line 319, ../sass/main.scss */
+  #aboutNav {
+    position: relative;
+    right: 45px;
+  }
+
+  /* line 324, ../sass/main.scss */
   .carousel-caption h1 {
     display: none;
   }
 
-  /* line 321, ../sass/main.scss */
+  /* line 328, ../sass/main.scss */
   .carousel-caption p {
     display: none;
   }
 
-  /* line 325, ../sass/main.scss */
+  /* line 332, ../sass/main.scss */
   .carousel-indicators {
     display: none;
   }
 
-  /* line 329, ../sass/main.scss */
+  /* line 336, ../sass/main.scss */
   .contactContent input[type="text"], .contactContent input[type="email"], textarea {
     width: 100%;
   }
