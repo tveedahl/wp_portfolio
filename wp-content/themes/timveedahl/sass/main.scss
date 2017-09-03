@@ -301,7 +301,8 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
 }
 
 // Media Queries
-@media (min-width: 320px) and (max-width: 767px) {
+//@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .nav {
         position: relative;
         top: 30px;

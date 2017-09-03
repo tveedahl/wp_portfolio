@@ -9125,46 +9125,46 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
   color: #FAFAFA;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
-  /* line 305, ../sass/main.scss */
+@media (max-width: 767px) {
+  /* line 306, ../sass/main.scss */
   .nav {
     position: relative;
     top: 30px;
     height: 130px;
   }
 
-  /* line 311, ../sass/main.scss */
+  /* line 312, ../sass/main.scss */
   .nav > li {
     text-align: center;
   }
 
-  /* line 315, ../sass/main.scss */
+  /* line 316, ../sass/main.scss */
   .nav > li > a {
     top: 0px !important;
   }
 
-  /* line 319, ../sass/main.scss */
+  /* line 320, ../sass/main.scss */
   #aboutNav {
     position: relative;
     right: 45px;
   }
 
-  /* line 324, ../sass/main.scss */
+  /* line 325, ../sass/main.scss */
   .carousel-caption h1 {
     display: none;
   }
 
-  /* line 328, ../sass/main.scss */
+  /* line 329, ../sass/main.scss */
   .carousel-caption p {
     display: none;
   }
 
-  /* line 332, ../sass/main.scss */
+  /* line 333, ../sass/main.scss */
   .carousel-indicators {
     display: none;
   }
 
-  /* line 336, ../sass/main.scss */
+  /* line 337, ../sass/main.scss */
   .contactContent input[type="text"], .contactContent input[type="email"], textarea {
     width: 100%;
   }
