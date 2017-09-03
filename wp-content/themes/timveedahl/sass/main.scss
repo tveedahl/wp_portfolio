@@ -38,7 +38,7 @@ body {
 
 //front-page carousel slide captions
 .carousel-caption.first {
-	bottom: 120px;
+	bottom: 90px;
 }
 
 .carousel-caption.second {
@@ -286,22 +286,35 @@ div.row.copyright {
 
 // Font Awesome Overrides
 a i.fa.fa-twitter-square.fa-3x, a i.fa.fa-facebook-square.fa-3x,
-a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-bitbucket-square.fa-3x  {
+a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-github-square.fa-3x  {
   color: $anchor;
 }
 
 a:hover i.fa.fa-twitter-square.fa-3x, a:hover i.fa.fa-facebook-square.fa-3x,
-a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-bitbucket-square.fa-3x  {
+a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-github-square.fa-3x  {
   color: $anchor-hover;
 }
 
 a:visited i.fa.fa-twitter-square.fa-3x, a:visited i.fa.fa-facebook-square.fa-3x,
-a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3x  {
+a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-github-square.fa-3x  {
   color: $anchor-visited;
 }
 
 // Media Queries
-//@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 1200px) {
+    .carousel-caption h2 {
+        display: none;
+    }
+
+    .carousel-caption p {
+        display: none;
+    }
+
+    .carousel-indicators {
+        display: none;
+    }
+}
+
 @media (max-width: 767px) {
     .nav {
         position: relative;
@@ -320,18 +333,6 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
     #aboutNav {
         position: relative;
         right: 45px;
-    }
-
-    .carousel-caption h1 {
-        display: none;
-    }
-
-    .carousel-caption p {
-        display: none;
-    }
-
-    .carousel-indicators {
-        display: none;
     }
 
     .contactContent input[type="text"], .contactContent input[type="email"], textarea {

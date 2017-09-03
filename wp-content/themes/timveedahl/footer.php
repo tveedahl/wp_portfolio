@@ -15,10 +15,9 @@
         <div class="site-info text-center">
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-4">
-                    <a href="#" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-facebook-square fa-3x"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-linkedin-square fa-3x"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-bitbucket-square fa-3x"></i></a>
+                    <a href="https://twitter.com/t_veedahl" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a>
+                    <a href="https://www.linkedin.com/in/timveedahl/" target="_blank"><i class="fa fa-linkedin-square fa-3x"></i></a>
+                    <a href="https://github.com/tveedahl" target="_blank"><i class="fa fa-github-square fa-3x"></i></a>
                 </div>
             </div>
             <div class="row copyright">

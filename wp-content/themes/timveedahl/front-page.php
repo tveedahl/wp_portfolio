@@ -11,9 +11,9 @@
                 <img class="first-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner_2_v4.jpg" />
                 <div class="container">
                     <div class="carousel-caption first">
-                        <h1>Astronomy compels the soul to look upward.</h1>
+                        <h2>Frontend/Backend Development</h2>
                         <p>
-                            It leads us from this world to another.
+                            My background includes having worked with a variety of frontend/backend content management systems, frameworks, and programming languages. I am also able to learn new technical skills quickly.
                         </p>
                         <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>-->
                     </div>
@@ -23,10 +23,9 @@
                 <img class="second-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner_3_v3.jpg" />
                 <div class="container">
                     <div class="carousel-caption second">
-                        <h1>We want to explore.</h1>
+                        <h2>Responsive Design/Mobile Apps</h2>
                         <p>
-                            Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build
-                            a space program.
+                            I know the importance of having a mobile presence in the world today. I can work with you to determine what type of solution works best, whether it is one that is native, hybrid, or responsive.
                         </p>
                         <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>-->
                     </div>
@@ -36,11 +35,9 @@
                 <img class="third-slide" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner_1_v8.jpg" />
                 <div class="container">
                     <div class="carousel-caption third">
-                        <h1>Space, the final frontier.</h1>
+                        <h2>Dashboards/Analytics</h2>
                         <p>
-                            These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange
-                            new worlds, to seek out new life and new civilizations, to boldly go where no man has gone
-                            before.
+                            I think data is important and impacts almost everything in our lives. In the past, I have developed a variety of custom data-driven dashboards and can work with you to do this as well. My education and experience also makes me capable of helping you with your analytics needs.
                         </p>
                         <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>-->
                     </div>
