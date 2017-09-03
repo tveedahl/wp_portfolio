@@ -39,9 +39,9 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <!--<li><a href="<?php echo home_url(); ?>">Home</a></li>-->
-                                <li><a href="<?php echo site_url(); ?>/about">About</a></li>
-                                <li><a href="<?php echo site_url(); ?>/category/blog">Blog</a></li>
-                                <li><a href="<?php echo site_url(); ?>/contact">Contact</a></li>
+                                <li><a id="aboutNav" href="<?php echo site_url(); ?>/about">About</a></li>
+                                <li><a id="blogNav" href="<?php echo site_url(); ?>/category/blog">Blog</a></li>
+                                <li><a id="contactNav" href="<?php echo site_url(); ?>/contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>

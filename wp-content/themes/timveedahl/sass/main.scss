@@ -302,20 +302,31 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
 
 // Media Queries
 @media (min-width: 320px) and (max-width: 767px) {
-  .carousel-caption h1 {
-    display: none;
-  }
+    .nav {
+        height: 140px;
+    }
 
-  .carousel-caption p {
-    display: none;
-  }
+    #aboutNav {
+        left: 35px;
+    }
 
-  .carousel-indicators {
-    display: none;
-  }
+    #blogNav, #contactNav {
+        text-align: center;
+    }
 
-  .contactContent input[type="text"], .contactContent input[type="email"],
-  textarea {
-    width: 100%;
-  }
+    .carousel-caption h1 {
+        display: none;
+    }
+
+    .carousel-caption p {
+        display: none;
+    }
+
+    .carousel-indicators {
+        display: none;
+    }
+
+    .contactContent input[type="text"], .contactContent input[type="email"], textarea {
+        width: 100%;
+    }
 }

@@ -9127,23 +9127,37 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
 
 @media (min-width: 320px) and (max-width: 767px) {
   /* line 305, ../sass/main.scss */
+  .nav {
+    height: 140px;
+  }
+
+  /* line 309, ../sass/main.scss */
+  #aboutNav {
+    left: 35px;
+  }
+
+  /* line 313, ../sass/main.scss */
+  #blogNav, #contactNav {
+    text-align: center;
+  }
+
+  /* line 317, ../sass/main.scss */
   .carousel-caption h1 {
     display: none;
   }
 
-  /* line 309, ../sass/main.scss */
+  /* line 321, ../sass/main.scss */
   .carousel-caption p {
     display: none;
   }
 
-  /* line 313, ../sass/main.scss */
+  /* line 325, ../sass/main.scss */
   .carousel-indicators {
     display: none;
   }
 
-  /* line 317, ../sass/main.scss */
-  .contactContent input[type="text"], .contactContent input[type="email"],
-  textarea {
+  /* line 329, ../sass/main.scss */
+  .contactContent input[type="text"], .contactContent input[type="email"], textarea {
     width: 100%;
   }
 }
