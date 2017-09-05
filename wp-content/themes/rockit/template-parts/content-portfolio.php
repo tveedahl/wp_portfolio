@@ -10,6 +10,11 @@
 ?>
 
 <?php
+    echo '<div class="row">';
+        echo '<div col-lg-6>';
+            echo '<h1 class="text-center">Portfolio</h1>';
+        echo '</div>';
+    echo '</div>';
     /**
      * Checks if portfolio category exists, and creates it otherwise
      */
