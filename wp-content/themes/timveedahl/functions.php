@@ -195,11 +195,6 @@ function modify_read_more_link() {
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
-function childtheme_favicon() {
-    <link rel="shortcut icon" href="<?php echo bloginfo('stylesheet_directory') ?>favicon.ico" />
-}
-add_action('wp_head', 'childtheme_favicon');
-
 /**
  * Setup a function to check if these pages exist
  */
