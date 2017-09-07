@@ -1,6 +1,6 @@
 <?php
     /*Template name: Asswipe*/
-    get_header(); 
+    get_header();
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -66,13 +66,6 @@
 </div>
 <div class="row">
     <div class="col-lg-4 text-center">
-        <img class="img-circle" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/dash_analytics_circ_v1.jpg" />
-        <h2>Dashboards/Analytics</h2>
-        <p>
-            I think data is important and impacts almost everything in our lives. In the past, I have developed a variety of custom data-driven dashboards and can work with you to do this as well. My education and experience also makes me capable of helping you with your analytics needs.
-        </p>
-    </div>
-    <div class="col-lg-4 text-center">
         <img class="img-circle" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/front_back_circ_v1.jpg" />
         <h2>Frontend/Backend Development</h2>
         <p>
@@ -83,7 +76,14 @@
         <img class="img-circle" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/mobile_circ_v1.jpg" />
         <h2>Mobile Applications</h2>
         <p>
-            I know the importance of having a mobile presence in the world today. I can work with you to determine what type of solution works best, whether it is one that is native, hybrid, or responsive.  	        
+            I know the importance of having a mobile presence in the world today. I can work with you to determine what type of solution works best, whether it is one that is native, hybrid, or responsive.
+        </p>
+    </div>
+    <div class="col-lg-4 text-center">
+        <img class="img-circle" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/dash_analytics_circ_v1.jpg" />
+        <h2>Dashboards/Analytics</h2>
+        <p>
+            I think data is important and impacts almost everything in our lives. In the past, I have developed a variety of custom data-driven dashboards and can work with you to do this as well. My education and experience also makes me capable of helping you with your analytics needs.
         </p>
     </div>
 </div>
@@ -131,7 +131,7 @@
                 $output = curl_error($ch);
                 echo stripslashes($output);
                 curl_close($ch);
-            } 
+            }
             curl_close($ch);
             $output = json_decode($output);
             $repoItr = 1;
@@ -163,7 +163,7 @@
             I maintain an active LinkedIn profile. Check it out to get a better sense of my work history and skill set.
         </p>
     </div>
-    <div class="col-md-5 col-md-pull-7">    
+    <div class="col-md-5 col-md-pull-7">
         <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
         <script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/timveedahl" data-format="inline" data-related="false"></script>
     </div>

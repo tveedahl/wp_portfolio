@@ -82,13 +82,26 @@ a:visited {
     color: $anchor-visited;
 }
 
+.main-navigation a {
+    color: $anchor !important;
+    text-decoration: none;
+}
+
+.main-navigation a:hover {
+    color: $anchor-hover !important;
+}
+
+.main-navigation a:visited {
+    color: $anchor-visited !important;
+}
+
 #myCarousel {
     margin-bottom: 40px;
     margin: 40px 0 40px 0;
 }
 
 img.img-circle {
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 
 .timeline-Footer {
