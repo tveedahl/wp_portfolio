@@ -434,6 +434,12 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
 }
 
 // Media Queries
+@media (min-width: 820px) {
+    .wpcf7-form-control.wpcf7-textarea {
+        width: 103%;
+    }
+}
+
 @media (max-width: 992px) {
     .contactContent input[type="text"], .contactContent input[type="email"],
     .contactContent textarea {

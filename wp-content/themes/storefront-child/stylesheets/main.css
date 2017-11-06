@@ -9310,53 +9310,59 @@ a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3
   color: #B9BBBB;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 820px) {
   /* line 438, ../sass/main.scss */
+  .wpcf7-form-control.wpcf7-textarea {
+    width: 103%;
+  }
+}
+@media (max-width: 992px) {
+  /* line 444, ../sass/main.scss */
   .contactContent input[type="text"], .contactContent input[type="email"],
   .contactContent textarea {
     width: 100%;
   }
 }
 @media (max-width: 767px) {
-  /* line 445, ../sass/main.scss */
+  /* line 451, ../sass/main.scss */
   .navbar-nav > li > a {
     text-align: center;
   }
 
-  /* line 450, ../sass/main.scss */
+  /* line 456, ../sass/main.scss */
   div[aria-expanded="true"] .site-content {
     padding-top: 145px;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
-  /* line 457, ../sass/main.scss */
+  /* line 463, ../sass/main.scss */
   .carousel-caption h1 {
     display: none;
   }
 
-  /* line 461, ../sass/main.scss */
+  /* line 467, ../sass/main.scss */
   .carousel-caption p {
     display: none;
   }
 
-  /* line 465, ../sass/main.scss */
+  /* line 471, ../sass/main.scss */
   .carousel-indicators {
     display: none;
   }
 
-  /* line 469, ../sass/main.scss */
+  /* line 475, ../sass/main.scss */
   span.IN-widget {
     width: 110%;
     position: relative;
     right: 15px;
   }
 
-  /* line 475, ../sass/main.scss */
+  /* line 481, ../sass/main.scss */
   img.avatar.avatar-128.photo {
     float: left;
   }
 
-  /* line 479, ../sass/main.scss */
+  /* line 485, ../sass/main.scss */
   .author {
     width: 278px;
   }
