@@ -14,50 +14,39 @@
 // Global var for storing the form attributes until the verification process is completed and correct.
 var attrsa = {};
 
-function fixing_credits_position () {
-	window.setTimeout( function () {
-		var target	= jQuery( '#griwpc-container-id' ),
-			ifra	= jQuery( '#griwpc-widget-id').find ( 'iframe' ),
-			credit	= jQuery('.plugin-credits'),
-			size	= parseInt( ifra.attr ( 'width' ) );
-		if ( target.hasClass ( 'recaptcha-align-left' ) ) {
-			credit.css( 'right', 'unset' );
-			credit.css( 'left', ( ( size - 20 ) / 2 ) + 'px' );
-		} else if ( target.hasClass ( 'recaptcha-align-right' ) ) {
-			credit.css( 'left', 'unset' );
-			credit.css( 'right', ( ( size - 20 ) / 2 ) + 'px' );
-		} else {
-			credit.css( 'right', 'unset' );
-			credit.css( 'left', '50%' );
-		}
-	}, 200 );
-}
-
 // Write/rewrite form HTML structure and block/unblock send button.
-function change_button ( value, address  ) {
+function griwpcChangeButton ( value, address  ) {
 	
-	var a, ele;
-	
+	var a, 
+		form = GriwpcTools.getForm(),
+		ele  = GriwpcTools.getButton( form ), 
+		groupElem;
+
+	if ( ( ele === undefined ) || ( form === undefined ) )
+		return;
+
+	ele  = jQuery( ele );
+	form = jQuery( form );
+
 	if ( value === null ) {
 		
 		// ID compatibility	themes
-		ele = jQuery( '#' + griwpco.formID ).find( '#' + griwpco.buttonID );
 		if ( ele.length > 0 )
 			ele.attr( 'disabled', '' );
 		
 		// Forcing blocked mode to all button, anchor, input, span type=submit HTML elements, even without ID
-		ele = jQuery( '#' + griwpco.formID ).find( '[type=submit]' ); 
-		if ( ele.length > 0 )
-			ele.attr( 'disabled', '' );
+		groupElem = form.find( '[type=submit]' ); 
+		if ( groupElem.length > 0 )
+			groupElem.attr( 'disabled', '' );
 		
-		a = jQuery( '#' + griwpco.formID )[0].attributes;
+		a = form[0].attributes;
 		jQuery.each ( a, function (i, v ) {
 			if ( v != undefined ) 
 				attrsa[ v.name ] = v.value; 
 		}); 
 		jQuery.each ( attrsa, function (i, v ) {
 			if ( ( i != 'id' ) && ( i != 'class' ) ) 
-				jQuery( '#' + griwpco.formID ).removeAttr( i );
+				form.removeAttr( i );
 		});
 		
 		if ( 1 === parseInt( griwpco.allowCreditMode ) ) {
@@ -68,45 +57,41 @@ function change_button ( value, address  ) {
 	if ( value === true ) {
 		
 		// ID compatibility	themes
-		ele = jQuery( '#' + griwpco.formID ).find( '#' + griwpco.buttonID );
 		if ( ele.length > 0 )
 			ele.removeAttr ('disabled');
 		
 		// Forcing blocked mode to all button, anchor, input, span type=submit HTML elements, even without ID
-		ele = jQuery( '#' + griwpco.formID ).find( '[type=submit]' );
-		if ( ele.length > 0 )
-			ele.removeAttr ('disabled');
+		groupElem = form.find( '[type=submit]' );
+		if ( groupElem.length > 0 )
+			groupElem.removeAttr ('disabled');
 		
 		jQuery.each ( attrsa, function (i, v ) { 
-			jQuery( '#' + griwpco.formID ).attr( i, v );
+			form.attr( i, v );
 		});
 		
-		jQuery( '#' + griwpco.formID ).append( '<input type="hidden" name="griwpcva" value="' + address + '">' );
+		form.append( '<input type="hidden" name="griwpcva" value="' + address + '">' );
 		
 	}
 	
 }
 
-// Ajax connection for verifying response through the secret key
+var griwpcProcessAjaxResponse = function( ajaxResponse ) {
+	if ( ( ajaxResponse.status === 200 ) && ( ajaxResponse.readyState === 4 ) && ( ajaxResponse.statusText === "OK" ) ) {
+		let processed = JSON.parse( ajaxResponse.response );
+		if ( processed.data.result === 'OK' )
+			griwpcChangeButton ( true, processed.data.address );
+		else
+			console.log ( 'Error verifying reCAPTCHA: ', processed );
+	} else {
+		console.log ( 'Error AJAX Call: ', ajaxResponse );
+	}
+
+}
+
 var griwpcVerifyCallback = function( griwpcr ) {
-	jQuery.ajax({
-		url		 : griwpco.ajax_url + '/wp-admin/admin-ajax.php',
-		type	 : 'POST',
-		data	 : { 
-			'action' : 'griwpc_verify_recaptcha',
-			'resp'	 : griwpcr,
-		}, 
-		dataType : 'json',
-		success  : function( griwpcrr ) {
-			if ( griwpcrr.data.result === 'OK' ) {
-			   change_button ( true, griwpcrr.data.address );
-			}
-		},
-		error : function( errorThrown ) {
-			console.log(errorThrown);
-		}
-	});
-};
+	GriwpcAjax.post ( griwpco.ajax_url + '/wp-admin/admin-ajax.php', { 'action' : 'griwpc_verify_recaptcha', 'resp' : griwpcr }, griwpcProcessAjaxResponse, true );
+}
+
 
 // Global onload Method
 var griwpcOnloadCallback = function() {
@@ -119,6 +104,4 @@ var griwpcOnloadCallback = function() {
 	  'callback' : griwpcVerifyCallback
 	});
 };
-(function ($) { change_button ( null, null); })(jQuery);
-
-
+(function ($) { griwpcChangeButton ( null, null); })(jQuery);

@@ -8,7 +8,7 @@
  
 /*
  * Class:       griwpc_interface
- * Version:     0.0.9.0.2
+ * Version:     9.1.0
  * Description: Base class for creating all interfaces
  */
 
@@ -18,14 +18,18 @@ class griwpc_interface {
 	public $settingsClass;
 	public $version;
 	public $options;
+	public $defaults;
 	
+
 	public function __construct( $version, $settingsClass ) {
 
-		$this->version 		 = $version; 	// Plugin version
-		$this->settingsClass = $settingsClass; // Class for controling settings and options
-		$this->options		 = $this->settingsClass->get_options();	// The plugin options
+		$this->version 		 = $version; 								// Plugin version
+		$this->settingsClass = $settingsClass; 							// Class for controling settings and options
+		$this->options		 = $this->settingsClass->get_options();		// The plugin options
+		$this->defaults		 = $this->settingsClass->get_defaults();	// The plugin options
 
 	}
+	
 	
 }
 
@@ -44,7 +48,7 @@ class griwpc_backend_interface extends griwpc_interface {
 	public function __construct( $version, $settingsClass ) {
 
 		parent::__construct ( $version, $settingsClass );
-		$this->reCAPTCHA	 = NULL;
+		$this->reCAPTCHA = NULL;
 
 		// Adding the settings submenu page
 		add_action( 'admin_menu',		array( $this, 'create_pages' ) );

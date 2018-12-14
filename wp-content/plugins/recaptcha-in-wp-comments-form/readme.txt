@@ -3,8 +3,8 @@ Author: jmviade
 Contributors: jmviade
 Tags: reCAPTCHA, comments antispam, antispam, comments reCAPTCHA, antispam protection, google reCAPTCHA, comments form, secure form, security, antispam RTL, RTL Language Support
 Requires at least: 4.0.0
-Tested up to: 4.7.5
-Stable tag: 9.0.3
+Tested up to: 4.9.8
+Stable tag: 9.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,8 @@ Finally, the plugin has got an optional **forced javascript output mode** that l
 
 * reCAPTCHA **verification process via AJAX before submitting the form**
 * **Second security checking process** for preventing any security breach **before saving the comment**
+* Supporting **four different WP comments form HTML structure types**
+* Advanced plugin options **based on HTML queries** for inserting the reCAPTCHA plugin in all kinds of WP themes
 * Optional **Forced javascript output** that allows you to use the plugin with old WP themes that didn't use function `comment_form()`
 * Advanced ID's tags settings for using this plugin with WP Themes that creates its own comments form HTML struct
 * reCAPTCHA javascript initialization that prevents reCAPTCHA conflicts in case of that other plugins use reCAPTCHA.
@@ -78,13 +80,27 @@ To learn more about the plugin, visit the [Plugin page](http://www.joanmiquelvia
 
 
 == Changelog ==
+= 9.1.0 = 
+* New plugin settings for supporting different WP comments form HTML structure types
+* Adding javascript methods based on HTML queries (instead of just ID attributes) for inserting reCAPTCHA plugin
+* Improving dynamic comments form sample configuration settings changes detection
+* Improving the Google Keys Pair error checking detecting typing errors
+* Forced load of the Amharic (Ethiopean) font in admin environment for non amharic interfaces
+* Native name corrected for Portuguesse
+* Improving JavaScript interactive notifications
+* Converting the plugin default values inserted inside the code into an independent and rewritable .ini file for storing the default configuration
+* Modifying installation Wizard instructions and Help tabs
+* jQuery UI CSS updated
+
 = 9.0.3 =
+
 * Adapt the plugin to new google error messages contents to avoid fake falses because of Google adds a new error for any "duplicated test"
 * Change the plugin versioning schema to 0.0.x.y.z to x.y.z for improving Composer or other automattic installations
 * Correct the SQOD constant name
 * Improve documentation
 
 = 0.0.9.0.2 =
+
 * Minor function changes for compatibility with hosting servers with PHP versions minor than 5.4.0
 * Improving compatibility module for WP themes with sophisticated HTML struct comments form
 * RTL full language support.
@@ -93,6 +109,7 @@ To learn more about the plugin, visit the [Plugin page](http://www.joanmiquelvia
 * Translations changes
 
 = 0.0.9.0.1 =
+
 * Upload error correction
 
 = 0.0.9 =

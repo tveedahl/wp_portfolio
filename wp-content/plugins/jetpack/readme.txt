@@ -1,60 +1,54 @@
 === Jetpack by WordPress.com ===
-Contributors: automattic, adamkheckler, aduth, akirk, allendav, alternatekev, andy, annezazu, apeatling, azaozz, batmoo, barry, beaulebens, blobaugh, cainm, cena, cfinke, chaselivingston, chellycat, csonnek, danielbachhuber, davoraltman, daniloercoli, designsimply, dllh, drawmyface, dsmart, dzver, ebinnion, eliorivero, enej, eoigal, erania-pinnera, ethitter, gcorne, georgestephanis, gibrown, goldsounds, hew, hugobaeta, hypertextranch, iammattthomas, iandunn, jacobshere, jblz, jeherve, jenhooks, jenia, jgs, jkudish, jmdodd, Joen, johnjamesjacoby, jshreve, koke, kraftbj, lamdayap, lancewillett, lschuyler, macmanx, martinremy, matt, matveb, mattwiebe, maverick3x6, mcsf, mdawaffe, michael-arestad, migueluy, mikeyarce, mkaz, nancythanki, nickmomrik, obenland, pento, professor44, rachelsquirrel, rdcoll, ryancowles, richardmuscat, richardmtl, roccotripaldi, samhotchkiss, scarstocea, sdquirk, stephdau, tmoorewp, tyxla, Viper007Bond, westi, yoavf, zinigor
+Contributors: automattic, adamkheckler, aduth, akirk, allendav, alternatekev, andy, annezazu, apeatling, azaozz, batmoo, barry, beaulebens, blobaugh, cainm, cena, cfinke, chaselivingston, chellycat, clickysteve, csonnek, danielbachhuber, davoraltman, daniloercoli, designsimply, dllh, drawmyface, dsmart, dzver, ebinnion, eliorivero, enej, eoigal, erania-pinnera, ethitter, gcorne, georgestephanis, gibrown, goldsounds, hew, hugobaeta, hypertextranch, iammattthomas, iandunn, jblz, jasmussen, jeffgolenski, jeherve, jenhooks, jenia, jessefriedman, jgs, jkudish, jmdodd, joanrho, johnjamesjacoby, jshreve, keoshi, koke, kraftbj, lancewillett, lschuyler, macmanx, martinremy, matt, matveb, mattwiebe, maverick3x6, mcsf, mdawaffe, MichaelArestad, migueluy, mikeyarce, mkaz, nancythanki, nickmomrik, obenland, oskosk, pento, professor44, rachelsquirrel, rdcoll, ryancowles, richardmuscat, richardmtl, roccotripaldi, samhotchkiss, scarstocea, sdquirk, stephdau, tmoorewp, tyxla, Viper007Bond, westi, yoavf, zinigor
 Tags: Jetpack, WordPress.com, backup, security, related posts, CDN, speed, anti-spam, social sharing, SEO, video, stats
-Stable tag: 5.2.1
-Requires at least: 4.7
-Tested up to: 4.8
+Stable tag: 6.8.1
+Requires at least: 4.8
+Tested up to: 5.0
 
-The one plugin you need for stats, related posts, search engine optimization, social sharing, protection, backups, speed, and email list management.
+The ideal plugin for stats, related posts, search engine optimization, social sharing, protection, backups, security, and more.
 
 == Description ==
 
-Keep any WordPress site secure, increase traffic, and engage your readers.
+Hassle-free design, marketing, and security — all in one place.
 
-= Traffic and SEO Tools =
-Traffic is the lifeblood of any website. Jetpack includes:
+= Design and Customization Services =
+Create and customize your WordPress site from start to finish. Jetpack helps you with:
 
-* [free] Site stats and analytics
-* [free] Automatic sharing on Facebook, Twitter, LinkedIn, Tumblr, Reddit, and WhatsApp
-* [free] Related posts
-* [paid] Search engine optimization tools for Google, Bing, Twitter, Facebook, and WordPress.com
-* [paid] Advertising program that includes the best of AdSense, Facebook Ads, AOL, Amazon, Google AdX, and Yahoo
+* Hundreds of professional themes for any kind of site
+* Intuitive and powerful customization tools
+* Unlimited and high-speed image and video content delivery network
+* Lazy image loading for a faster mobile experience
+* Integration with the official WordPress mobile apps
 
-= Security and Backup Services =
-Stop worrying about data loss, downtime, and hacking. Jetpack provides:
+= Marketing and Performance Services =
+Measure, promote, and earn money from your site. Jetpack helps you with:
 
-* [free] Brute force attack protection
-* [free] Downtime and uptime monitoring
-* [free] Secured logins and two-factor authentication
-* [paid] Malware scanning, code scanning, and threat resolution
-* [paid] Site backups, restores, and migrations
+* Site stats and analytics
+* Automated social media posting and scheduling in advance
+* Elasticsearch-powered related content and site search
+* SEO tools for Google, Bing, Twitter, Facebook, and WordPress.com
+* Advertising program that includes the best of AdSense, Facebook Ads, AOL, Amazon, Google AdX, and Yahoo
+* Simple PayPal payment buttons
+* Optimize: Activate Jetpack’s site accelerator to load pages faster, optimize your images, and serve your images and static files (like CSS and JavaScript) from our global network of servers. You’ll also reduce bandwidth usage, which may lead to lower hosting costs.
 
-= Content Creation =
-Add rich, beautifully-presented media -- no graphic design expertise necessary:
+= Security and Backups Services =
+Stop worrying about data loss, downtime, and hacking. Jetpack helps you with:
 
-* [free] A high-speed CDN for your images
-* [free] Carousels, slideshows, and tiled galleries
-* [free] Simple embeds from YouTube, Google Documents, Spotify and more
-* [free] Sidebar customization including Facebook, Twitter, and RSS feeds
-* [free] Extra sidebar widgets including blog stats, calendar, and author widgets
-* [paid] High-speed, ad-free, and high-definition video hosting
-
-= Discussion and Community =
-Create a connection with your readers and keep them coming back to your site with:
-
-* [free] Email subscriptions
-* [free] Comment login with Facebook, Twitter, and Google
-* [free] Fully-customizable contact forms
-* [free] Infinite scroll for your posts
+* Brute force attack protection, spam filtering, and downtime monitoring
+* Daily or real-time backups of your entire site
+* Secure logins with optional two-factor authentication
+* Malware scanning, code scanning, and automated threat resolution
+* Activity: a record of every change and update on your site
+* Fast, priority support from WordPress experts
 
 = Expert Support =
-We have an entire team of Happiness Engineers ready to help you. Ask your questions in the support forum, or [contact us directly](https://jetpack.com/contact-support).
+We have a global team of Happiness Engineers ready to help you. Ask your questions in the support forum, or [contact us directly](https://jetpack.com/contact-support).
 
 = Paid Services =
-Most of Jetpack's features and services are free. Jetpack also provides advanced security and backup services, video hosting, site monetization, priority support, and more SEO tools in three [simple and affordable plans](https://jetpack.com/pricing?from=wporg).
+Compare our [simple and affordable plans](https://jetpack.com/pricing?from=wporg) or take a [product tour](https://jetpack.com/features?from=wporg) to learn more.
 
 = Get Started =
-Installation is free, quick, and easy. Set up <a href="https://jetpack.com/install?from=wporg">the free plan</a> in minutes.
+Installation is free, quick, and easy. [Install Jetpack from our site](https://jetpack.com/install?from=wporg) in minutes.
 
 == Installation ==
 
@@ -66,15 +60,15 @@ Alternatively, install Jetpack via the plugin directory, or upload the files man
 
 == Frequently Asked Questions ==
 
-= Is Jetpack Free? =
+= Is Jetpack free? =
 Yes! Jetpack's core features are and always will be free.
 
 These include: [site stats](https://jetpack.com/features/traffic/site-stats), a [high-speed CDN](https://jetpack.com/features/writing/content-delivery-network/) for images, [related posts](https://jetpack.com/features/traffic/related-posts), [downtime monitoring](https://jetpack.com/features/security/downtime-monitoring), brute force [attack protection](https://jetpack.com/features/security/brute-force-attack-protection), [automated sharing](https://jetpack.com/features/traffic/automatic-publishing/) to social networks, [sidebar customization](https://jetpack.com/features/writing/sidebar-customization/), and many more.
 
 = Should I purchase a paid plan? =
-Jetpack's paid services include automated backups, security scanning, spam filtering, video hosting, site monetization, SEO tools, and priority support.
+Jetpack's paid services include real-time backups, security scanning, premium themes, spam filtering, video hosting, site monetization, SEO tools, search, priority support, and more.
 
-If you're interested in learning more about the extra layers of protection and advanced tools available, learn more about our [paid plans](https://jetpack.com/pricing?from=wporg).
+To learn more about the essential security and WordPress services we provide, visit our [plan comparison page](https://jetpack.com/pricing?from=wporg).
 
 = Why do I need a WordPress.com account? =
 
@@ -95,62 +89,56 @@ There are opportunities for developers at all levels to contribute. [Learn more 
 
 == Screenshots ==
 
-1. Dashboard: Bird’s eye view of your site stats, status, and health.
-2. Safety: Protect your site and data with powerful security services.
-3. Engagement: Social sharing, likes, and related posts.
-4. Analytics: Actionable site stats and traffic insights.
-5. Traffic: SEO Tools for Google, Twitter, Facebook and more.
+1. Themes: Choose from hundreds of customizable, professional themes.
+2. Performance: Free high-speed content delivery network for your images.
+3. Apps: Update your site from any device with the free WordPress apps.
+4. Analytics: Simple and concise site stats and traffic insights.
+5. Sharing: Connect your site to social networks for automated social sharing.
+6. Revenue: Sell products & take payments with simple payment buttons.
+7. Downtime Monitoring: Get notified if and when your site goes down.
+8. Security: Protection against brute force attacks, spam, and malware. On-demand backups and restores.
 
 == Changelog ==
 
-= 5.2.1 =
+= 6.8.1 =
 
-* Release date: August 2, 2017
-* Release post: https://jetpack.com/?p=22686
+* Release date: December 6, 2018
+* Release post: https://wp.me/p1moTy-d3t
 
 **Bug fixes**
-* Solves an issue that caused widgets to lose their content when saved in WP Admin or Customizer.
 
-= 5.2 =
+* Contact Form: security changes to improve the display of success messages after submitting a form.
+* Publicize: avoid Fatal errors when trying to create or edit posts from a Custom Post Type that supports Publicize.
+* Sync: improve synchronization of WooCommerce events.
+* WordPress.com REST API: handle WooCommerce Product reviews for a better display in apps that use the API.
 
-* Release date: August 1, 2017
-* Release post: https://jetpack.com/?p=22509
+= 6.8 =
+
+* Release date: November 26, 2018
+* Release post: https://wp.me/p1moTy-cee
 
 **Major Enhancements**
-* Contact Forms now sports a fancy new interface that allows you to visually compose your form in the editor.
-* We have a new and slick way to showcase and explain the features we recommend to activate to new users.
+
+* This release introduces the first wave of Jetpack blocks built for the new block editor, available in WordPress 5.0.
 
 **Enhancements**
-* Reduced 500kb from plugin zip file, which means faster updates.
-* Refactored and reduced code for Comment Likes so it's faster and lighter.
 
-**Bug fixes**
-* An inconsistency experienced in WordPress.com dashboard when Related Posts settings were set in the local site's WP Admin is now fixed.
-* Fixed a 404 when loading Open Sans font from a stylesheet plus now it's only enqueued if it will be used.
-* Solve PHP warnings when Image widget wasn't migrated.
+* General: improve ability to create and troubleshoot Jetpack connections.
+* REST API: new endpoint for testing the Jetpack connection.
 
-= 5.1 =
+**Improved compatibility**
 
-* Release date: July 5th, 2017
-* Release post: https://jetpack.com/?p=20888
-
-**Major Enhancements**
-* You and your readers can now show appreciation to particularly clever comments with the new Comment Likes feature.
-
-**Enhancements**
-* Quickly visit your current site's front-end directly from the Masterbar's new "View Site" item.
-* Site data fetch from /me/sites REST API endpoint now includes `blog_public` in the list of returned options.
-* The Flickr widget now automatically displays images in a grid if there's enough room.
-* E-mail sharing is now disabled by default unless it's explicitly enabled by a filter or Akismet is active.
-
-**Compatibility Improvements**
-
-* Updated instructions in Flickr widget to reflect recent changes to the Flickr UI.
+* Akismet: improve caching of all queries for Akismet status.
+* Spellcheck / Grammar: we've made sure the Jetpack feature did not create any error when using the block editor.
+* Twenty Nineteen: ensure compatibility with Jetpack's widgets.
 
 **Bug fixes**
 
-* EU Cookie Law Banner cookie no longer cached.
-* WP Admin menu can now be accessed in mobile when Masterbar is displayed.
-* We now sync the `order_id` for `order_items` in older WooCommerce versions.
-* UI now handles VaultPress connection or registration problems gracefully.
-* Photon now works correctly with images uploaded before WordPress 2.7.
+* Asset CDN: do not try to serve assets from non-public versions.
+* Carousel: handle galleries created via the Gallery block in the new block editor.
+* Photon: make sure our image CDN is fully compatible with the block editor.
+
+
+--------
+
+[See the previous changelogs here](https://raw.githubusercontent.com/Automattic/jetpack/master/changelog.txt).

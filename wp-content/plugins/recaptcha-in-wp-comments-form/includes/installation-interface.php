@@ -132,7 +132,8 @@ class griwpc_installation_interface extends griwpc_backend_interface {
 	
 			$get .= '<li>';
 				$get .= '<p>' . __( 'Creating a new <strong>Google reCAPTCHA</strong>.', 'recaptcha-in-wp-comments-form' ) . '</p>';
-				$get .= '<p>' . __( 'Go to a <strong>Register a New Site</strong> section where first, you have to create a new <em>Label</em> for the new reCAPTCHA and second, you have to write the list of <em>Domains</em> that will be able to use this new reCAPTCHA. In our case, you have to write the <strong>domain of your WordPress site</strong>.', 'recaptcha-in-wp-comments-form' ) . '</p>';
+				$get .= '<p>' . __( 'Go to a <strong>Register a New Site</strong> section where first, you have to create a new <em>Label</em> for the new reCAPTCHA and, in the second field, you have to choose the option <strong>reCAPTCHA v2</strong> as its <em>Type</em>.', 'recaptcha-in-wp-comments-form' ) . '</p>';
+				$get .= '<p>' . __( 'At this point, a third field called <strong>Domains</strong> will appear on the screen where you have to write the list of the web <em>Domains</em> that will be able to use this new reCAPTCHA. In our case, you have to write the <strong>domain name of your WordPress site</strong>. Finally, remember to accept the terms of services marking the next check box.', 'recaptcha-in-wp-comments-form' ) . '</p>';
 				$get .= '<p>' . '<img src="' . __GRIWPC_URL__ . '/images/g-register-example.png" />' . '</p>';
 			$get .= '</li>';
 				

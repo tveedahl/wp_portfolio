@@ -8,7 +8,7 @@
  
 /*
  * Class:       griwpc_standard_backend_interface
- * Version:     0.0.9.0.2
+ * Version:     9.1.0
  * Description: This class creates the settings page and the fields for configuration. When plugin has not the Google reCAPTCHA API Keys pair, 
  *				this class doesn't works because the plugin switches to installation wizard.
  *
@@ -64,6 +64,7 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 		
 	}
 
+
 	// Adding metaboxes to the accordion sections
 	public function adding_metaboxes ( ) {
 		
@@ -91,7 +92,21 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 	public function register_scripts () {
 
 		// Plugin Back-End script
-		wp_enqueue_script ( 'griwpc-admin', __GRIWPC_URL__ . 'js/backend-interface.js', array ( 'common', 'jquery-ui-selectmenu', 'post', 'recaptcha-call' ), $this->version, TRUE  );
+		wp_register_script ( 'griwpc-admin', __GRIWPC_URL__ . 'js/backend-interface.js', array ( 'griwpc-base', 'common', 'jquery-ui-selectmenu', 'post' ), $this->version, TRUE  );
+
+		$translation_array = array (
+
+			'statusActive'      => $this->strings['isON'],
+			'statusInactive'    => $this->strings['isOFF'],
+
+			'negotiating'		=> __( 'Connecting with Google reCAPTCHA server...', 'recaptcha-in-wp-comments-form' ),
+			'connected' 		=> __( 'Connected', 'recaptcha-in-wp-comments-form' ),
+			'disconnected' 		=> __( 'Disconnected', 'recaptcha-in-wp-comments-form' ),
+			'invalidPair'   	=> __( 'Error. Your reCAPTCHA API Key pair is not valid.', 'recaptcha-in-wp-comments-form' ),
+
+		);
+		wp_localize_script ( 'griwpc-admin', 'griwpbi', $translation_array );
+		wp_enqueue_script ( 'griwpc-admin' );
 
 	}
 
@@ -100,9 +115,16 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 	public function register_styles () {
 
 		wp_register_style (
+			'recaptcha-google-fonts', 
+			'https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&amp;subset=latin%2Clatin-ext',
+			array (),
+			$this->version,
+			'screen'
+		);
+		wp_register_style (
 			'jquery-ui-style',
 			__GRIWPC_URL__ . 'css/jquery-ui.min.css',
-			array ( 'wp-admin' ),
+			array ( 'wp-admin', 'recaptcha-google-fonts' ),
 			'1.12.0',
 			'all'
 		);
@@ -131,7 +153,6 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 					   '.slideThree.small label {	width: ' . ( 25 + ( $plus / 2 )  ) . 'px; }' .
 					   '.slideThree.small input[type=checkbox]:checked + label { left: ' . ( 28 + ($plus/2) ) . 'px; }';
 
-		
 		wp_add_inline_style ( 'griwpc-admin', $outCSS );
 		
 	}
@@ -150,121 +171,84 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 
 		echo '<div class="wrap">';
 		echo '<h2 class="recaptcha-plugin-title" >' . __GRIWPC__ . '</h2>';
-		
-		// Area 1: Plugin status
-		echo '<div class="manage-menus">';
-			echo '<div class="status-area">';
-					$this->recaptcha_status();
-			echo '</div>';
-			echo '<div class="messages-area">';
-					echo '<p>' . sprintf( __( 'If you like this plugin, please, consider activate the small <strong>credit link</strong> of the plugin in the accordion section <strong>%1$s</strong> and I would be grateful if you rate the plugin in <a href="%2$s" target="_blank" >Wordpress plugin page</a>.', 'recaptcha-in-wp-comments-form' ), $this->sections['outputModeSettings'], __GRIWPC_WP_SITE__ ) . '</p>';
-			echo '</div>';
-		echo '</div>';
-
-		$this->google_recaptcha_assigned ( $user_ID );
 			
-		echo '</div>';
-		
-	}
-
-	public function google_recaptcha_assigned ( $user_ID ) {
-
-		echo '<div id="nav-menus-frame" class="wp-clearfix">';
-		
-			echo '<div id="menu-settings-column" class="metabox-holder">';
-				echo '<div class="clear"></div>';
-				echo '<form id="griwpc-form" class="griwpc-form" action="options.php" method="POST" >';
-				
-					echo '<input type="hidden" id="user-id" name="user_ID" value="' . (int) $user_ID .'" />';
-					
-					wp_nonce_field( 'meta-box-order',	'meta-box-order-nonce', false );
-					wp_nonce_field( 'closedpostboxes',	'closedpostboxesnonce', false );
-				
-					// Area 2: Accordion Sections
-					do_accordion_sections( get_current_screen(), 'side', $this->options );
-					$this->saving_settings_function_callback();
-					
-				echo '</form>';
-			echo '</div>';
+			echo '<div id="nav-menus-frame" class="wp-clearfix">';
 			
-			echo '<div id="menu-management-liquid">';
-				echo '<div id="menu-management">';
-				
-					// Area 3: Example form sample
-					$this->construct_form_example();
+				echo '<div id="menu-settings-column" class="metabox-holder">';
+
+					// Area 1: Plugin status Icons
+					echo '<div class="manage-menus manage-menus-status">';
+						$this->recaptcha_status();
+					echo '</div>';
+
+					echo '<div class="clear"></div>';
+
+					// Area 2: Plugin Interface
+					echo '<form id="griwpc-form" class="griwpc-form" action="options.php" method="POST" >';
+					
+						echo '<input type="hidden" id="user-id" name="user_ID" value="' . (int) $user_ID .'" />';
+						
+						wp_nonce_field( 'meta-box-order',	'meta-box-order-nonce', false );
+						wp_nonce_field( 'closedpostboxes',	'closedpostboxesnonce', false );
+					
+						do_accordion_sections( get_current_screen(), 'side', $this->options );
+						$this->saving_settings_function_callback();
+						
+					echo '</form>';
 				echo '</div>';
+				
+				echo '<div id="menu-management-liquid">';
+
+					// Area 3: Plugin messages
+					echo '<div class="manage-menus manage-menus-messages">';
+
+						echo '<p>' . sprintf( __( 'For further information see the <strong>Help</strong> tab of this screen, or visit the <a href="%1$s" target="_blank" >Author\'s plugin page</a> or the <a href="%2$s" target="_blank" >Google reCAPTCHA</a> website.', 'recaptcha-in-wp-comments-form' ), __GRIWPC_SITE__,__GRIWPC_RECAPTCHA_SITE__ ) . '</p>';
+
+						echo '<p>' . sprintf( __( 'If you like this plugin, please, consider activate the small <strong>credit link</strong> of the plugin in the accordion section <strong>%1$s</strong> and I would be grateful if you rate the plugin in <a href="%2$s" target="_blank" >Wordpress plugin page</a>.', 'recaptcha-in-wp-comments-form' ), $this->sections['outputModeSettings'], __GRIWPC_WP_SITE__ ) . '</p>';
+
+					echo '</div>';
+
+					echo '<div class="clear"></div>';
+
+					// Area 4: Form sample
+					echo '<div id="menu-management">';
+						$this->construct_form_example();
+					echo '</div>';
+				echo '</div>';
+			
 			echo '</div>';
-		
+
 		echo '</div>';
 
 	}
+
+
 
 	// Area 1: Plugin status
 	public function recaptcha_status() {
-		
-		$c 	   = ( isset ( $this->options['active'] ) && ! empty ( $this->options['active'] ) );
-		$valid = griwpc_tools::check_google_API_keys_pair ( $this->options );
-		
-		$_class = ( $valid )	? '' : 'warning';
-		$_clasx = ( $c ) 		? '' : 'warning';
-		$_style	= ( $c ) 		? '' : 'style="display: none;"';
 
-		$error1 = sprintf( 
-				__( '<strong>Null API Keys</strong>. Visit <a href="%s" target="_blank" >Google reCAPTCHA</a> website, log in, register your site and get your API Keys.', 'recaptcha-in-wp-comments-form' ), 
-				__GRIWPC_RECAPTCHA_SITE__ ) . ' ' . $this->strings['Amsg'];
-		$error2 = sprintf( 
-				__( '<strong>Invalid Site Key</strong>. Visit <a href="%s" target="_blank" >Google reCAPTCHA</a> website and check your <strong>Site</strong> Key.', 'recaptcha-in-wp-comments-form' ), 
-				__GRIWPC_RECAPTCHA_SITE__ ) . ' ' . $this->strings['Amsg'];
-		$error3 = sprintf( 
-				__( '<strong>Invalid Secret Key</strong>. Visit <a href="%s" target="_blank" >Google reCAPTCHA</a> website and check your <strong>Secret</strong> Key.', 'recaptcha-in-wp-comments-form' ), 
-				__GRIWPC_RECAPTCHA_SITE__ ) . ' ' . $this->strings['Amsg'];
-		
-		$ok 	= sprintf( 
-				__( '<strong>OK</strong>. For further information see the <strong>Help</strong> tab of this screen, or visit the <a href="%1$s" target="_blank" >Author\'s plugin page</a> or the <a href="%2$s" target="_blank" >Google reCAPTCHA</a> website.', 'recaptcha-in-wp-comments-form' ), 
-				__GRIWPC_SITE__,
-				__GRIWPC_RECAPTCHA_SITE__ );
-		
-		echo '<p class="recaptcha-status-line" ><span class="recaptcha-lparams recaptcha-status">' . __( 'Plugin status:', 'recaptcha-in-wp-comments-form' ) . '</span>';
-			$status =  ( $c ) ? __( 'Active', 'recaptcha-in-wp-comments-form' ) : __( 'Inactive', 'recaptcha-in-wp-comments-form' );
-			echo sprintf( '<span class="recaptcha-msg %1$s"><strong>%2$s</strong> running in PHP v. %3$s</span>', $_clasx, $status, phpversion() );
-		echo '</p>';
+		echo '<span id="plugin-status-icon" class="status-dashicons dashicons dashicons-admin-plugins is-unknown" data-title="' . __( 'Plugin Status', 'recaptcha-in-wp-comments-form' ) . '"></span>';
+		echo '<span id="recaptcha-status-icon" class="status-dashicons dashicons is-unknown" data-title="' . __( 'reCAPTCHA Operation', 'recaptcha-in-wp-comments-form' ) . '"></span>';
 
-		echo '<p class="recaptcha-status-line"><span class="recaptcha-lparams recaptcha-operation">' . __( 'reCAPTCHA operation:', 'recaptcha-in-wp-comments-form' ) . '</span>';
-			$status =  ( $valid ) ? __( 'Connected', 'recaptcha-in-wp-comments-form' ) : __( 'Disconnected', 'recaptcha-in-wp-comments-form' );
-			echo sprintf( '<span class="recaptcha-msg %1$s">%2$s</span>', $_class, $status );
-		echo '</p>';
-
-		echo '<p class="recaptcha-status-line"><span class="recaptcha-lparams recaptcha-messages">' . __( 'Message:', 'recaptcha-in-wp-comments-form' ) . '</span>';
-		echo '<span class="recaptcha-msg">';
+		echo '<span id="recaptcha-settings-icon" class="status-dashicons dashicons dashicons-admin-generic" data-title="' . __( 'reCAPTCHA Settings', 'recaptcha-in-wp-comments-form' ) . '" ></span>';
 		
-			if ( ! ($valid ) ) {
-				if ( $a == $b ) {
-					echo $error1;
-				} else {
-					if ( ! $a ) 
-						echo $error2;
-					else
-						echo $error3;
-				}
-			} else {
-				echo $ok;
-			}
-			
-		echo '</span>';
-		echo '</p>';
+		echo '<span id="recaptcha-mode-icon" class="status-dashicons dashicons" data-title="' . __( 'Antispam Action', 'recaptcha-in-wp-comments-form' ) . '" ><img/></span>';
+
+		echo '<span id="credits-status-icon" class="status-dashicons dashicons dashicons-smiley is-unknown" data-title="' . __( 'Plugin Credits', 'recaptcha-in-wp-comments-form' ) . '"></span>';		
+
+		echo '<span id="plugin-version" class="status-dashicons dashicons dashicons-admin-tools" data-title="' . __( 'Plugin version', 'recaptcha-in-wp-comments-form' ) . '" data-value="' . $this->version . '" ></span>';
+
+		echo '<span id="php-version" class="status-dashicons dashicons" data-title="' . __( 'PHP version', 'recaptcha-in-wp-comments-form' ) . '" data-value="' . phpversion() . '" >' . griwpc_tools::echo_php_logo() . '</span>';
 
 	}
 
 
-	// Area 2: Accordion Sections
-	// 		   Area 2 is created via metaboxes, see Metaboxes callback functions for accordion sections below
+
+	// Area 2.1 is created via metaboxes, see Metaboxes callback functions for accordion sections below
 
 
-	// Area 3: Example form sample
-/*	    require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
-        echo '<pre>';
-		echo print_r( wp_get_available_translations() );
-		echo '</pre>'; */
+
+	// Area 2.2: Example form sample
 	public function construct_form_example() {
 
 		$valueSite   = ( ( isset ( $this->options['site_key'] )   && ( $this->options['site_key']   != '' )) ? $this->options['site_key']   : FALSE );
@@ -274,7 +258,10 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 
 		echo '<div class="menu-edit ">';
 			echo '<div id="nav-menu-header">';
-				echo '<h3>' . __( 'Comments form sample', 'recaptcha-in-wp-comments-form' ) . '</h3>';
+				echo '<h3>' . __( 'Comments form sample', 'recaptcha-in-wp-comments-form' ) . '<span class="is-help-button dashicons dashicons-editor-help" data-container="div" ></span></h3>';
+
+				echo '<div class="help-text _closed" ><p>' . __( 'This is just a sample form not a real wp comments form. It\'s just for checking the connection with reCAPTCHA service and for helping the user with the Google reCAPTCHA plugin options (shape, color, position, etc. ) therefore, if you need a complete and real operation test, please, logout as WP Administrator, go to any real single post and check how the reCAPTCHA plugin appears and works.', 'recaptcha-in-wp-comments-form' ) . '</p></div>';
+
 			echo '</div>';
 
 			echo '<div id="post-body">';
@@ -294,26 +281,10 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 							echo '<p><label for="email">'   . __( 'Email', 'recaptcha-in-wp-comments-form' ) . ' <span class="required">*</span>' . '</label> <input id="email" type="email" class="field-example" readonly value="' . __( 'address@example.com', 'recaptcha-in-wp-comments-form' ) . '"></p>';
 							echo '<p><label for="url">'     . __( 'Website', 'recaptcha-in-wp-comments-form' ) . '</label> <input id="url" type="url" class="field-example" readonly value="' . __( 'http://example.com', 'recaptcha-in-wp-comments-form' ) . '"></p>';
 							
-							if ( $c ) {
-	
-								if ( ( $valueSite === FALSE ) || ( $valueSecret === FALSE ) ) {
-									
-									echo '<p class="warning" >' . 
-									sprintf( __( 'Plugin can\'t connect. You have to introduce a correct Site and Secret API Key pair in the <strong>%s</strong> accordion section.', 'recaptcha-in-wp-comments-form' ), $this->sections['apiKeys'] ) . '</p>';
-									
-								} else {
-									
-									if ( $this->options['old_themes_compatibility'] != 1 )
-										echo $this->reCAPTCHA->render_HTML ( $htmlTag, $this->options );
-										
-								}
-							
-							} else {
-								
-									echo '<p class="warning" >' . 
-									sprintf( __( 'Plugin Inactive. You have to activate the plugin in <strong>%s</strong> accordion section.', 'recaptcha-in-wp-comments-form' ), $this->sections['activation'] ) . '</p>';
-								
-							}
+							echo '<p id="form-plugin-inactive-msg" class="warning" >' . sprintf( __( 'Plugin Inactive. You have to activate the plugin in <strong>%s</strong> accordion section.', 'recaptcha-in-wp-comments-form' ), $this->sections['activation'] ) . '</p>';
+
+							if ( $this->options['old_themes_compatibility'] != 1 )
+								echo $this->reCAPTCHA->render_HTML ( $htmlTag, $this->options );
 						
 							echo '<p><input id="submit" class="submit button button-secondary" value="' . __( 'Post Comment', 'recaptcha-in-wp-comments-form' ) . '"></p>';
 						
@@ -327,6 +298,7 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 	}
 
 
+	// Area 2.1: Accordion Sections
 	/*
 	 *
 	 * Metaboxes callback functions for accordion sections
@@ -335,7 +307,7 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 
 	public function recaptcha_activation_function_callback ( $options ) {
 		
-		$active = (boolean) isset ( $options['active'] ) ? $options['active'] : 0;
+		$active = (boolean) isset ( $options['active'] ) ? $options['active'] : $this->defaults['active'];
 		$this->settingsClass->reCaptchaActive( $active );
 
 	}
@@ -344,7 +316,7 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 
 		echo '<p>Paste the <span class="warning">Google reCAPTCHA API Keys pair</span> values here</p>';
 
-		$vSite	 = isset ( $options['site_key'] )	? $options['site_key'] : NULL;
+		$vSite	 = isset ( $options['site_key'] )	? $options['site_key']   : NULL;
 		$vSecret = isset ( $options['secret_key'] ) ? $options['secret_key'] : NULL;
 
 		$this->settingsClass->siteKey( $vSite );
@@ -354,11 +326,11 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 	
 	public function recaptcha_settings_function_callback ( $options ) {
 
-		$valueTheme = isset ( $options['recaptcha_theme'] )	? $options['recaptcha_theme']	: 'light';
-		$valueSize	= isset ( $options['recaptcha_size'] )	? $options['recaptcha_size']	: 'normal';
-		$valueType	= isset ( $options['recaptcha_type'] )	? $options['recaptcha_type']	: 'image';
-		$valueAlign	= isset ( $options['recaptcha_align'] )	? $options['recaptcha_align']	: 'left';
-		$language	= isset ( $options['recaptcha_lang'] )	? $options['recaptcha_lang']	: '-1';
+		$valueTheme = isset ( $options['recaptcha_theme'] )	? $options['recaptcha_theme']	: $this->defaults['recaptcha_theme'];
+		$valueSize	= isset ( $options['recaptcha_size'] )	? $options['recaptcha_size']	: $this->defaults['recaptcha_size'];
+		$valueType	= isset ( $options['recaptcha_type'] )	? $options['recaptcha_type']	: $this->defaults['recaptcha_type'];
+		$valueAlign	= isset ( $options['recaptcha_align'] )	? $options['recaptcha_align']	: $this->defaults['recaptcha_align'];
+		$language	= isset ( $options['recaptcha_lang'] )	? $options['recaptcha_lang']	: $this->defaults['recaptcha_lang'];
 
 		$this->settingsClass->reCaptchaTheme( $valueTheme );
 		$this->settingsClass->reCaptchaSize( $valueSize );
@@ -370,7 +342,7 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 	
 	public function antispam_settings_function_callback ( $options ) {
 		
-		$mode		= isset ( $options['recaptcha_mode'] )	? $options['recaptcha_mode']	: 'spam';
+		$mode		= isset ( $options['recaptcha_mode'] )	? $options['recaptcha_mode']	: $this->defaults[ 'recaptcha_mode' ];
 
 		echo '<p>' . __( 'When the plugin detects an unauthorized comment or a security breach, which action do you want to do?', 'recaptcha-in-wp-comments-form' ) . '</p>';
 		$this->settingsClass->reCaptchaMode( $mode );
@@ -380,40 +352,49 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 	
 	public function plugin_settings_function_callback ( $options ) {
 
-		$formID		= isset ( $options['formID'] )			? $options['formID']			: 'commentform';
-		$buttonID	= isset ( $options['buttonID'] )		? $options['buttonID']			: 'submit';
-		$tag		= isset ( $options['recaptcha_tag'] )	? $options['recaptcha_tag']		: 'p';
-		$css		= isset ( $options['recaptcha_css'] )	? $options['recaptcha_css']		: '.google-recaptcha-container{display:block;clear:both;}';
+		$formID			= isset ( $options['formID'] )			? $options['formID']			: $this->defaults[ 'formID' ];
+		$formQuery		= isset ( $options['formQuery'] )		? $options['formQuery']			: $this->defaults[ 'formQuery' ];
+		$formQueryElem	= isset ( $options['formQueryElem'] )	? $options['formQueryElem']		: $this->defaults[ 'formQueryElem' ];
 
+		$buttonID			= isset ( $options['buttonID'] )		? $options['buttonID']			: $this->defaults[ 'buttonID' ];
+		$buttonQuery		= isset ( $options['buttonQuery'] )		? $options['buttonQuery']		: $this->defaults[ 'buttonQuery' ];
+		$buttonQueryElem	= isset ( $options['buttonQueryElem'] )	? $options['buttonQueryElem']	: $this->defaults[ 'buttonQueryElem' ];
 
-		echo '<h4 class="subsection-toggler _closed" >' . __( 'About <span class="dashicons dashicons-image-rotate"></span> button in all fields of this section', 'recaptcha-in-wp-comments-form' )  . '</h4>';
-		echo '<div class="subsection-content _closed" >';
+		$tag		= isset ( $options['recaptcha_tag'] )	? $options['recaptcha_tag']		: $this->defaults[ 'recaptcha_tag' ];
+		$css		= isset ( $options['recaptcha_css'] )	? $options['recaptcha_css']		: $this->defaults[ 'recaptcha_css' ];
+
+		$standardQueries = isset ( $options['standardQueries'] ) ? $options['standardQueries'] : $this->defaults[ 'standardQueries' ];
+
+		echo '<div>';
+		echo '<p>' . sprintf( _x( 'About %1$s button in all fields of this section', '1: restore defaults icon', 'recaptcha-in-wp-comments-form' ), '<span class="dashicons dashicons-image-rotate dashicons-in-text" title="Restore default values"></span>' ) . '<span class="is-help-button dashicons dashicons-editor-help" data-container="div" ></span>' . '</p>';
+		
+		echo '<div class="help-text _closed" >';
 			echo '<p>' . __( 'Press these buttons for <strong>restoring separately</strong> each one of the <strong>original plugin default values</strong>.', 'recaptcha-in-wp-comments-form' )  . '</p>';
 			echo '<p>' . __( 'So that, if you have deleted (or forgot) accidentally any of these next values, you\'ve changed your WP theme and the reCAPTCHA field doesn\'t appear, you are testing a new configuration or whatever... Don\'t worry, just relax you and press these buttons each time you need it.', 'recaptcha-in-wp-comments-form' )  . '</p>';
+		echo '</div>';
 		echo '</div>';
 
 		echo '<hr style="margin:2rem 0rem 1.5rem 0rem;" />';
 
-		echo '<p>' . __( 'Change the value of these setting, only if the comments form of your theme, or its submit button have got different HTML <strong>id</strong> attributtes.', 'recaptcha-in-wp-comments-form' ) . '</p>';
+		$data = (object) array ( 
+			'formID' 			=> $formID, 
+			'formQuery' 		=> $formQuery,
+			'formQueryElem' 	=> $formQueryElem,
+			'buttonID' 			=> $buttonID, 
+			'buttonQuery' 		=> $buttonQuery,
+			'buttonQueryElem'	=> $buttonQueryElem,
+		);
 
-		$this->settingsClass->formID( $formID );
-		$this->settingsClass->buttonID( $buttonID );
-		echo '<hr style="margin:2rem 0rem 1.5rem 0rem;" />';
-		
-		echo '<p>' . __( 'You can modify the HTML tag container for reCAPTCHA field.', 'recaptcha-in-wp-comments-form' ) . '</p>';
-		$this->settingsClass->recaptchaTag( $tag );
-
-		echo '<hr style="margin:2rem 0rem 1.5rem 0rem;" />';
-
-		echo '<p>' . __( 'You can modify the reCAPTCHA container style via CSS using the <code>.google-recaptcha-container</code> class.', 'recaptcha-in-wp-comments-form' ) . '</p>';
-		$this->settingsClass->recaptchaCSS( $css );
+		$this->settingsClass->standardQueries ( $standardQueries, $data, 1 );
+		$this->settingsClass->recaptchaTag( $tag, 2 );
+		$this->settingsClass->recaptchaCSS( $css, 3 );
 
 	}
 	
 	public function output_settings_function_callback ( $options ) {
 
 		$oldThemeMode = isset ( $options['old_themes_compatibility'] )	? $options['old_themes_compatibility']	: -1;
-		$allowCreditMode = isset ( $options['allowCreditMode'] ) ? $options['allowCreditMode']	: 0;
+		$allowCreditMode = isset ( $options['allowCreditMode'] ) ? $options['allowCreditMode']	: $this->defaults[ 'allowCreditMode' ];
 		
 		echo '<p>' . __( 'If your theme doesn\'t use the WP function <code>comment_form()</code> but it makes a direct PHP output of the form code, you should activate the <strong>Javascript Output Mode</strong> to see the reCAPTCHA field.', 'recaptcha-in-wp-comments-form' ) . '</p>';
 		$this->settingsClass->javascriptOutputMode( $oldThemeMode );
@@ -441,7 +422,6 @@ class griwpc_standard_backend_interface extends griwpc_backend_interface {
 							submit_button();
 						echo '</div><!-- END .publishing-action -->';
 					echo '</div><!-- END .major-publishing-actions -->';
-
 
 				echo '</div><!-- .inside -->';
 			echo '</div><!-- .accordion-section-content -->';

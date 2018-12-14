@@ -33,6 +33,29 @@ class griwpc_messages {
 		
 	}
 
+	static function get_settings_strings_array () {
+
+		return array (
+			'adminNoticeSaved' 			=> 	__( 'Plugin and reCAPTCHA settings saved.', 'recaptcha-in-wp-comments-form' ),
+			'invalidGoogleRecaptchaPair' =>	_x( 'One or both parts of the %1$s are empty. Plugin has switched to the Installation Wizard mode.', '1: reCAPTCHA pair string', 'recaptcha-in-wp-comments-form' ),
+			'defaultButtonTitleTxt'  	=>	__ ( 'Press this button for restoring plugin default value', 'recaptcha-in-wp-comments-form' ),
+			'pluginSettingsSubsections' =>  array (
+				1 => __( 'Position for reCAPTCHA', 			'recaptcha-in-wp-comments-form' ),
+				2 => __( 'HTML container for reCAPTCHA', 	'recaptcha-in-wp-comments-form' ),
+				3 => __( 'CSS for reCAPTCHA', 				'recaptcha-in-wp-comments-form' ), 
+			),
+			'querymodesDescription' 	=> array( 
+				__( 'Both the Form and the Submit Button have ID',		'recaptcha-in-wp-comments-form' ),
+				__( 'Just the Submit Button has an ID', 				'recaptcha-in-wp-comments-form' ),
+				__( 'Just the Form has an ID', 							'recaptcha-in-wp-comments-form' ),
+				__( 'Neither the Form nor the Submit Button have ID',	'recaptcha-in-wp-comments-form' ),
+			),
+		);
+
+	}
+
+
+
 	// Screen Strings
 	static function get_screen_strings_array() {
 
@@ -43,12 +66,12 @@ class griwpc_messages {
 									),
 			'isON'					=> _x( 
 										'ON', 
-										"String for 'active' state in switcher fields. It should be a short string, 2 to 5 letters.", 
+										"String for 'active' state in switcher fields. It should be always translated as a short string, 2 to 5 letters.", 
 										'recaptcha-in-wp-comments-form' 
 									),
 			'isOFF'					=> _x(
 										'OFF', 
-										"String for 'inactive' state in switcher fields. It should be a short string, 2 to 5 letters.", 
+										"String for 'inactive' state in switcher fields. It should be always translated as a short string, 2 to 5 letters.", 
 										'recaptcha-in-wp-comments-form'
 									),
 			'saveButtonText'		=> _x(
@@ -71,7 +94,7 @@ class griwpc_messages {
 		
 		// Derivated strings
 		$strings['googleKeysPair']	= sprintf( '<span class="warning"><strong>%s</strong></span>', $strings['googleKeysPairString'] );
-		
+
 		
 		return $strings;
 		
@@ -125,7 +148,7 @@ class griwpc_messages {
 			$get .= '<ul>'; 
 			
 				$get .= '<li>'; 
-					$get .= '<p>' . __( 'In the case of creating a new reCAPTCHA, go to the <strong>Register a new Site</strong> and create a new <em>Label</em> for the new reCAPTCHA and afterwards, you have to write the list of <em>Domains</em> that will be able to use the new reCAPTCHA.', 'recaptcha-in-wp-comments-form' ) . '</p>';
+					$get .= '<p>' . __( 'In the case of creating a new reCAPTCHA, go to the <strong>Register a new Site</strong> and create a new <em>Label</em> for the new reCAPTCHA afterwards, in the next field, select the <strong>reCATPCHA v2</strong> option as its type. Then it will appear on the screen a new field called <strong>Domains</strong> where you have to write the list of <em>Domains</em> that will be able to use the new reCAPTCHA. Finally, remember to mark the checkbox accepting the terms of service.', 'recaptcha-in-wp-comments-form' ) . '</p>';
 					$get .= '<p>' . __( 'Pressing the <em>Register</em> button, you\'ll save the <strong>New Site</strong> and you\'ll go to the settings page of the new reCAPTCHA.', 'recaptcha-in-wp-comments-form' ) . '</p>';
 					$get .= '<img src="' . __GRIWPC_URL__ . '/images/g-register.png"/>';
 				$get .= '</li>'; 
@@ -188,6 +211,9 @@ class griwpc_messages {
 
 		$sections   = griwpc_messages::get_section_names_array();
 		$tabtitle	= $sections['pluginSettings'];
+
+		$strings    = griwpc_messages::get_settings_strings_array();
+
 		
 		$recap  = '<h2>' . $tabtitle . '</h2>';
 		$recap .= '<p>' . __( 'In this accordion section, you can set up the technical and internal parameters of the plugin.', 'recaptcha-in-wp-comments-form' ) . '</p>'; 
@@ -195,10 +221,6 @@ class griwpc_messages {
 		$recap .= '<p>' . __( 'In most of WP themes, the plugin works automatically without any additional configuration but, if your WP theme has got a special comments form, it has got different ID attributes in form HTML tags, you need to configure the CSS styles, etc. through this set of settings you can change the operating mode of the plugin completely.', 'recaptcha-in-wp-comments-form' ) . '</p>';
 		
 		$recap .= '<img src="' . __GRIWPC_URL__ . '/images/Area Plugin Settings.jpg"  style="width:100%; max-width:700px; height: auto;"/>';
-
-		$recap .= '<h4>' . __( 'About <span class="dashicons dashicons-image-rotate"></span> button in all fields of this section', 'recaptcha-in-wp-comments-form' )  . '</h4>';
-		$recap .= '<p>' . __( 'Press these buttons for <strong>restoring separately</strong> each one of the <strong>original plugin default values</strong>.', 'recaptcha-in-wp-comments-form' )  . '</p>';
-		$recap .= '<p>' . __( 'So that, if you have deleted (or forgot) accidentally any of these next values, you\'ve changed your WP theme and the reCAPTCHA field doesn\'t appear, you are testing a new configuration or whatever... Don\'t worry, just relax you and press these buttons each time you need it: the plugin will recover the original state and setting values.', 'recaptcha-in-wp-comments-form' )  . '</p>';
 
 		$recap .= '<p>' . sprintf( __( 'For further information about the plugin settings and for seeing some examples, please visit the <a href="%1$s" target="_blank">Author\'s plugin settings help page</a>.', 'recaptcha-in-wp-comments-form' ), __GRIWPC_SITE_CONF__ ) . '</p>';
 

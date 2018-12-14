@@ -8,7 +8,7 @@
  
 /*
  * Class:       griwpc_recaptcha
- * Version:     9.0.3
+ * Version:     9.1.0
  * Description: This class shows and controls the reCAPTCHA field in WP comments form 
  */
 
@@ -42,7 +42,6 @@ class griwpc_recaptcha extends griwpc_interface {
 			
 		}
 		
-		
 	}
 
 	public function register_styles () {
@@ -56,35 +55,54 @@ class griwpc_recaptcha extends griwpc_interface {
 	}
 
 
-
-
 	// Loading Back-End Scripts and Styles
 	public function register_scripts () {
 
+		$defs = $this->settingsClass->get_defaults();
+
 		$translation_array = array(
-			'ajax_url' 			=> get_bloginfo('url' ),								   
-			'formID'			=> ( isset ( $this->options['formID'] )  		 ? $this->options['formID']  			: 'commentform' ),
-			'buttonID'			=> ( isset ( $this->options['buttonID'] ) 		 ? $this->options['buttonID']  			: 'submit'  ),
+			'ajax_url' 			=> get_bloginfo('url' ),
+
+			'standardQueries'	=> ( isset ( $this->options['standardQueries'] ) ? $this->options['standardQueries']  	: $defs['standardQueries'] ),							   
+
+			'formID'			=> ( isset ( $this->options['formID'] )  		 ? $this->options['formID']  			: $defs['formID'] ),
+			'formQuery'			=> ( isset ( $this->options['formQuery'] )  	 ? $this->options['formQuery']  		: $defs['formQuery'] ),
+			'formQueryElem'		=> ( isset ( $this->options['formQueryElem'] )	 ? $this->options['formQueryElem']		: $defs['formQueryElem'] ),
+
+			'buttonID'			=> ( isset ( $this->options['buttonID'] ) 		 ? $this->options['buttonID']  			: $defs['buttonID'] ),
+			'buttonQuery'		=> ( isset ( $this->options['buttonQuery'] ) 	 ? $this->options['buttonQuery']  		: $defs['buttonQuery'] ),
+			'buttonQueryElem'	=> ( isset ( $this->options['buttonQueryElem'] ) ? $this->options['buttonQueryElem']	: $defs['buttonQueryElem'] ),
+
 			'recaptcha_elem'    => NULL,
 			'recaptcha_id'		=> 'griwpc-widget-id',
 			'recaptcha_skey'	=> ( isset ( $this->options['site_key'] ) 		 ? $this->options['site_key']  			: '' 		),
-			'recaptcha_theme'	=> ( isset ( $this->options['recaptcha_theme'] ) ? $this->options['recaptcha_theme']	: 'light' 	),
-			'recaptcha_size'	=> ( isset ( $this->options['recaptcha_size'] )  ? $this->options['recaptcha_size']		: 'normal'	),
-			'recaptcha_type'	=> ( isset ( $this->options['recaptcha_type'] )  ? $this->options['recaptcha_type']		: 'image'	),
-			'recaptcha_align'	=> ( isset ( $this->options['recaptcha_align'] ) ? $this->options['recaptcha_align']	: 'left'	),
-			'recaptcha_otcm'	=> ( isset ( $this->options['old_themes_compatibility'] )  ? $this->options['old_themes_compatibility']	: '-1'	),
-			'recaptcha_tag'		=> ( isset ( $this->options['recaptcha_tag'] )	 ? $this->options['recaptcha_tag']		: 'p' ),
+			'recaptcha_theme'	=> ( isset ( $this->options['recaptcha_theme'] ) ? $this->options['recaptcha_theme']	: $defs['recaptcha_theme']	),
+			'recaptcha_size'	=> ( isset ( $this->options['recaptcha_size'] )  ? $this->options['recaptcha_size']		: $defs['recaptcha_size']	),
+			'recaptcha_type'	=> ( isset ( $this->options['recaptcha_type'] )  ? $this->options['recaptcha_type']		: $defs['recaptcha_type']	),
+			'recaptcha_align'	=> ( isset ( $this->options['recaptcha_align'] ) ? $this->options['recaptcha_align']	: $defs['recaptcha_align']	),
+			'recaptcha_otcm'	=> ( isset ( $this->options['old_themes_compatibility'] ) ? $this->options['old_themes_compatibility']	: '-1'	),
+			'recaptcha_tag'		=> ( isset ( $this->options['recaptcha_tag'] )	 ? $this->options['recaptcha_tag']		: $defs['recaptcha_tag'] ),
 			'recaptcha_lang'	=> '',		
 			'allowCreditMode'	=> $this->options['allowCreditMode'],
 			'home_link_address' => __GRIWPC_SITE__,
 			'home_link_title'   => __( 'reCAPTCHA plugin homepage', 'recaptcha-in-wp-comments-form' ),
 			'home_link_text'    => __( 'Get reCAPTCHA plugin', 'recaptcha-in-wp-comments-form' ),
+
+			'version'			=> $this->version,
+			'reCAPTCHAloaded'   => ( isset ( $this->options['formID'] )  		 ? ((int) $this->options['active'] == 1) : ( (int) $defs['active'] == 1) ), 
 		);
 
 		// Comments form sample has always got the default ID's attributes
 		if ( is_admin() ) {
-			$translation_array[ 'formID'   ] = 'commentform';
-			$translation_array[ 'buttonID' ] = 'submit';
+			$translation_array['pluginVersion']		= $this->version;
+			$translation_array['pluginURL']   		= __GRIWPC_URL__;
+
+			$translation_array['reCAPTCHAloaded']   = ( isset ( $this->options['formID'] )  		 ? ((int) $this->options['active'] == 1) : ( (int) $defs['active'] == 1) );
+
+			$translation_array[ 'standardQueries' ] = $defs['standardQueries'];
+			$translation_array[ 'formID'   ] 		= $defs['formID'];
+			$translation_array[ 'buttonID' ] 		= $defs['buttonID'];
+
 			$translation_array[ 'allowCreditMode' ] = 1;
 			$translation_array[ 'realAllowCreditMode' ] = $this->options['allowCreditMode'];
 		}
@@ -103,24 +121,34 @@ class griwpc_recaptcha extends griwpc_interface {
 		}
 
 		$dependencies = array ( 'jquery-core' );
-		// When output mode is via javascript
-		if ( (int) $this->options['old_themes_compatibility'] == 1 ) {
-			wp_register_script ( 'google-recaptcha-compat-ini', __GRIWPC_URL__ . 'js/compatibility.js', $dependencies, $this->version, TRUE );								
-			wp_enqueue_script  ( 'google-recaptcha-compat-ini' );
-			wp_localize_script ( 'google-recaptcha-compat-ini', 'griwpco', $translation_array );
-			$dependencies[] = 'google-recaptcha-compat-ini';
-		}
+		wp_enqueue_script ( 'jquery-core' );
 
-		// reCAPTCHA plugin script
-		wp_register_script ( 'google-recaptcha-ini', __GRIWPC_URL__ . 'js/recaptcha.js', $dependencies, $this->version, TRUE  );
-		if ( (int) $this->options['old_themes_compatibility'] == 0 ) 
-			wp_localize_script ( 'google-recaptcha-ini', 'griwpco', $translation_array );
-		wp_enqueue_script  ( 'google-recaptcha-ini' );
-		$dependencies[] = 'google-recaptcha-ini';
-	
-		// reCAPTCHA Google script
-		wp_register_script ( 'recaptcha-call', __GRIWPC_RECAPTCHA_SHOW__ . 'onload=griwpcOnloadCallback&render=explicit' . $lang , $dependencies, '' , TRUE );
-		wp_enqueue_script  ( 'recaptcha-call' );
+
+		if ( $translation_array['reCAPTCHAloaded'] === true ) {
+
+			// Common JavaScript Classes
+			wp_register_script ( 'griwpc-base', __GRIWPC_URL__ . 'js/base.js', array (), $this->version, TRUE  );
+			wp_localize_script ( 'griwpc-base', 'griwpco', $translation_array );
+			$dependencies[] = 'griwpc-base';
+
+
+			// When output mode is via javascript
+			if ( ( (int) $this->options['old_themes_compatibility'] == 1 )  ) {
+				wp_register_script ( 'google-recaptcha-compat-ini', __GRIWPC_URL__ . 'js/compatibility.js', $dependencies, $this->version, TRUE );	
+				$dependencies[] = 'google-recaptcha-compat-ini';
+			}
+
+
+			// reCAPTCHA plugin script
+			wp_register_script ( 'google-recaptcha-ini', __GRIWPC_URL__ . 'js/recaptcha.js', $dependencies, $this->version, TRUE  );
+			$dependencies[] = 'google-recaptcha-ini';
+
+		
+			// reCAPTCHA Google script
+			wp_register_script ( 'recaptcha-call', __GRIWPC_RECAPTCHA_SHOW__ . "onload=griwpcOnloadCallback&render=explicit" . $lang , $dependencies, '' , TRUE );
+			wp_enqueue_script  ( 'recaptcha-call' );
+
+		}
 
 	}
 

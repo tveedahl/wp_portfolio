@@ -1,4 +1,28 @@
 <?php
+
+new WPCOM_JSON_API_GET_Site_Endpoint( array(
+	'description' => 'Get information about a site.',
+	'group'       => 'sites',
+	'stat'        => 'sites:X',
+	'allowed_if_flagged' => true,
+	'method'      => 'GET',
+	'max_version' => '1.1',
+	'new_version' => '1.2',
+	'path'        => '/sites/%s',
+	'path_labels' => array(
+		'$site' => '(int|string) Site ID or domain',
+	),
+	'allow_jetpack_site_auth' => true,
+	'query_parameters' => array(
+		'context' => false,
+		'options' => '(string) Optional. Returns specified options only. Comma-separated list. Example: options=login_url,timezone',
+	),
+
+	'response_format' => WPCOM_JSON_API_GET_Site_Endpoint::$site_format,
+
+	'example_request' => 'https://public-api.wordpress.com/rest/v1/sites/en.blog.wordpress.com/',
+) );
+
 class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 
 	public static $site_format = array(
@@ -96,6 +120,12 @@ class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 		'podcasting_archive',
 		'is_domain_only',
 		'is_automated_transfer',
+		'is_wpcom_store',
+		'signup_is_store',
+		'has_pending_automated_transfer',
+		'woocommerce_is_active',
+		'design_type',
+		'site_goals'
 	);
 
 	protected static $jetpack_response_field_additions = array(
@@ -111,7 +141,11 @@ class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 		'publicize_permanently_disabled',
 		'ak_vp_bundle_enabled',
 		'is_automated_transfer',
-		'frame_nonce'
+		'is_wpcom_store',
+		'woocommerce_is_active',
+		'frame_nonce',
+		'design_type',
+		'wordads'
 	);
 
 	private $site;
@@ -156,7 +190,7 @@ class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 	/**
 	 * Collects the necessary information to return for a site's response.
 	 *
-	 * @return (array)
+	 * @return array
 	 */
 	public function build_current_site_response() {
 
@@ -186,8 +220,21 @@ class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 		return $this->render_response_keys( $response_keys );
 	}
 
+	/**
+	 * Checks that the current user has access to the current blog,
+	 * and failing that checks that we have a valid blog token.
+	 *
+	 * @param $token_details array Details obtained from the authorization token
+	 * @param $blog_id int The server-side blog id on wordpress.com
+	 *
+	 * @return bool
+	 */
 	private function has_blog_access( $token_details, $blog_id ) {
-		if ( is_user_member_of_blog( get_current_user_id(), $blog_id ) ) {
+		$current_blog_id = (  defined( 'IS_WPCOM' ) && IS_WPCOM ) ?
+			$blog_id :
+			get_current_blog_id();
+
+		if ( is_user_member_of_blog( get_current_user_id(), $current_blog_id ) ) {
 			return true;
 		}
 
@@ -199,7 +246,7 @@ class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 		if (
 			'jetpack' === $token_details['auth'] &&
 			'blog' === $token_details['access'] &&
-			$blog_id === $token_details['blog_id']
+			$current_blog_id === $token_details['blog_id']
 		) {
 			return true;
 		}
@@ -483,6 +530,34 @@ class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 				case 'blog_public':
 					$options[ $key ] = $site->get_blog_public();
 					break;
+				case 'is_wpcom_store':
+					$options[ $key ] = $site->is_wpcom_store();
+					break;
+				case 'signup_is_store':
+					$signup_is_store = $site->signup_is_store();
+
+					if ( $signup_is_store ) {
+						$options[ $key ] = $site->signup_is_store();
+					}
+
+					break;
+				case 'has_pending_automated_transfer':
+					$has_pending_automated_transfer = $site->has_pending_automated_transfer();
+
+					if ( $has_pending_automated_transfer ) {
+						$options[ $key ] = true;
+					}
+
+					break;
+				case 'woocommerce_is_active':
+					$options[ $key ] = $site->woocommerce_is_active();
+					break;
+				case 'design_type':
+					$options[ $key ] = $site->get_design_type();
+					break;
+				case 'site_goals':
+					$options[ $key ] = $site->get_site_goals();
+					break;
 			}
 		}
 
@@ -555,6 +630,26 @@ class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 	}
 }
 
+new WPCOM_JSON_API_List_Post_Formats_Endpoint( array(
+	'description' => 'Get a list of post formats supported by a site.',
+	'group'       => '__do_not_document',
+	'stat'        => 'sites:X:post-formats',
+
+	'method'      => 'GET',
+	'path'        => '/sites/%s/post-formats',
+	'path_labels' => array(
+		'$site' => '(int|string) Site ID or domain',
+	),
+
+	'query_parameters' => array(
+		'context' => false,
+	),
+
+	'response_format' => array(
+		'formats' => '(object) An object of supported post formats, each key a supported format slug mapped to its display string.',
+	)
+) );
+
 class WPCOM_JSON_API_List_Post_Formats_Endpoint extends WPCOM_JSON_API_Endpoint {
 	// /sites/%s/post-formats -> $blog_id
 	function callback( $path = '', $blog_id = 0 ) {
@@ -584,6 +679,25 @@ class WPCOM_JSON_API_List_Post_Formats_Endpoint extends WPCOM_JSON_API_Endpoint 
 		return $response;
 	}
 }
+
+new WPCOM_JSON_API_List_Page_Templates_Endpoint( array(
+	'description' => 'Get a list of page templates supported by a site.',
+	'group'       => 'sites',
+	'stat'        => 'sites:X:post-templates',
+
+	'method'      => 'GET',
+	'path'        => '/sites/%s/page-templates',
+	'path_labels' => array(
+		'$site' => '(int|string) Site ID or domain',
+	),
+	'query_parameters' => array(
+		'context' => false,
+	),
+	'response_format' => array(
+		'templates' => '(array) A list of supported page templates. Contains label and file.',
+	),
+	'example_request' => 'https://public-api.wordpress.com/rest/v1.1/sites/33534099/page-templates'
+) );
 
 class WPCOM_JSON_API_List_Page_Templates_Endpoint extends WPCOM_JSON_API_Endpoint {
 	// /sites/%s/page-templates -> $blog_id

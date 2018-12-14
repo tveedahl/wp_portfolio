@@ -37,7 +37,7 @@ class WPCOM_JSON_API {
 	 */
 	static function init( $method = null, $url = null, $post_body = null ) {
 		if ( !self::$self ) {
-			$class = function_exists( 'get_called_class' ) ? get_called_class() : __CLASS__;
+			$class = function_exists( 'get_called_class' ) ? get_called_class() : __CLASS__; // phpcs:ignore PHPCompatibility.PHP.NewFunctions.get_called_classFound
 			self::$self = new $class( $method, $url, $post_body );
 		}
 		return self::$self;
@@ -392,7 +392,7 @@ class WPCOM_JSON_API {
 					'value' => $content_type,
 				)
 			);
-			
+
 			foreach( $extra as $key => $value ) {
 				$headers[] = array( 'name' => $key, 'value' => $value );
 			}
@@ -437,8 +437,9 @@ class WPCOM_JSON_API {
 
 		$status_code = $error->get_error_data();
 
-		if ( is_array( $status_code ) )
+		if ( is_array( $status_code ) ) {
 			$status_code = $status_code['status_code'];
+		}
 
 		if ( !$status_code ) {
 			$status_code = 400;
@@ -447,6 +448,11 @@ class WPCOM_JSON_API {
 			'error'   => $error->get_error_code(),
 			'message' => $error->get_error_message(),
 		);
+
+		if ( $additional_data = $error->get_error_data( 'additional_data' ) ) {
+			$response['data'] = $additional_data;
+		}
+
 		return array(
 			'status_code' => $status_code,
 			'errors' => $response
