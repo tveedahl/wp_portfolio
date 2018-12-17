@@ -67,6 +67,13 @@
 	 */
 	do_action( 'storefront_before_content' ); ?>
 
+	<?php
+		/**
+	 	* Define Github OAuth Token 
+		*/
+		define('Github_OAuth', '0d381ee1e1608f2c6b31119213c22976282b60fc');
+	?> 
+
 	<div id="content" class="site-content" tabindex="-1">
 		<div class="col-full">
 

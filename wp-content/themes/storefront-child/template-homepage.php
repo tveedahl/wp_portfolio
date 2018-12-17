@@ -116,9 +116,8 @@
     <div class="col-md-5">
         <?php
             $user = 'tveedahl';
-            $token = 'bd4d707603a146be768e4d2e051161d71cbcb466';
             $curl_url = 'https://api.github.com/users/' . $user . '/repos';
-            $curl_token_auth = 'Authorization: token ' . $token;
+            $curl_token_auth = 'Authorization: token ' . Github_OAuth;
             $ch = curl_init($curl_url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent: Awesome-Octocat-App', $curl_token_auth));
