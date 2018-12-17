@@ -10,6 +10,7 @@
 
 // Bootstrap Overrides
 .navbar {
+  text-align: center;
   background: $bg-main;
 }
 
@@ -182,6 +183,10 @@ a.url.fn.n:visited {
 
 div.entry-content {
   margin-bottom: 45px;
+}
+
+img.img-circle {
+  margin: 0 15px 0 0;
 }
 
 div.entry-content img.img-circle {
