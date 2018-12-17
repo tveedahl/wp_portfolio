@@ -1,5 +1,5 @@
 <?php
-    /*Template name: Asswipe*/
+    /* Template name: timVeedahl */
     get_header();
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -136,7 +136,7 @@
             $output = json_decode($output);
             $repoItr = 1;
             if (!empty($output)) {
-                echo '<div id="repoHead"><i class="fa fa-github fa-2x" aria-hidden="true"></i><span>My Repos</span></div>';
+                echo '<div id="repoHead"><i class="fab fa-github fa-2x" aria-hidden="true"></i><span>My Repos</span></div>';
                 echo '<div id="repoGroup">';
                 foreach ($output as $repo) {
                     if ($repoItr < count($output)) {

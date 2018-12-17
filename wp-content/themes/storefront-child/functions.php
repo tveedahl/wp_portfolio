@@ -27,5 +27,8 @@ function enqueue_child_theme_styles() {
 	//enqueue bootstrap in the child theme 
 	wp_enqueue_script('bootstrap-js', get_stylesheet_directory_uri().'/javascripts/bootstrap.min.js', array('jquery'), NULL, true);
 	wp_enqueue_style('bootstrap-css', get_stylesheet_directory_uri().'/stylesheets/main.css', false, NULL, 'all');
+
+	//enqueue font-awesome
+	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.6.1/css/all.css' );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_child_theme_styles', PHP_INT_MAX);
