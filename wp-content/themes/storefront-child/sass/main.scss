@@ -286,6 +286,10 @@ span.posted-on {
     color: $base-text-light;
 }
 
+h1.entry-title {
+    text-align: center;    
+}
+
 time.entry-date.published.updated {
     color: $anchor;
     text-decoration: none;

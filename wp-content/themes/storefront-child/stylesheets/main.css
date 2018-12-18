@@ -9133,143 +9133,148 @@ span.posted-on {
 }
 
 /* line 289, ../sass/main.scss */
+h1.entry-title {
+  text-align: center;
+}
+
+/* line 293, ../sass/main.scss */
 time.entry-date.published.updated {
   color: #7E7E7C;
   text-decoration: none;
 }
 
-/* line 294, ../sass/main.scss */
+/* line 298, ../sass/main.scss */
 time.entry-date.published.updated:hover {
   color: #FFFFFF;
 }
 
-/* line 298, ../sass/main.scss */
+/* line 302, ../sass/main.scss */
 time.entry-date.published.updated:visited {
   color: #B9BBBB;
 }
 
-/* line 302, ../sass/main.scss */
+/* line 306, ../sass/main.scss */
 span.byline {
   color: #B9BBBB;
 }
 
-/* line 306, ../sass/main.scss */
+/* line 310, ../sass/main.scss */
 a.url.fn.n {
   color: #7E7E7C;
   text-decoration: none;
 }
 
-/* line 311, ../sass/main.scss */
+/* line 315, ../sass/main.scss */
 a.url.fn.n:hover {
   color: #FFFFFF;
 }
 
-/* line 315, ../sass/main.scss */
+/* line 319, ../sass/main.scss */
 a.url.fn.n:visited {
   color: #B9BBBB;
 }
 
-/* line 319, ../sass/main.scss */
+/* line 323, ../sass/main.scss */
 div.entry-content {
   margin-bottom: 45px;
 }
 
-/* line 323, ../sass/main.scss */
+/* line 327, ../sass/main.scss */
 div.entry-content img.img-circle {
   float: left;
   margin-right: 15px;
   margin-bottom: 15px;
 }
 
-/* line 329, ../sass/main.scss */
+/* line 333, ../sass/main.scss */
 div.entry-content p {
   color: #252839;
   line-height: 1.75;
 }
 
-/* line 334, ../sass/main.scss */
+/* line 338, ../sass/main.scss */
 span.cat-links {
   color: #B9BBBB;
   display: block;
   margin-bottom: 15px;
 }
 
-/* line 340, ../sass/main.scss */
+/* line 344, ../sass/main.scss */
 span.cat-links a {
   color: #7E7E7C;
   text-decoration: none;
 }
 
-/* line 345, ../sass/main.scss */
+/* line 349, ../sass/main.scss */
 span.cat-links a:hover {
   color: #FFFFFF;
 }
 
-/* line 349, ../sass/main.scss */
+/* line 353, ../sass/main.scss */
 span.cat-links a:visited {
   color: #B9BBBB;
 }
 
-/* line 353, ../sass/main.scss */
+/* line 357, ../sass/main.scss */
 span.tags-links {
   color: #B9BBBB;
   display: block;
   margin-bottom: 15px;
 }
 
-/* line 359, ../sass/main.scss */
+/* line 363, ../sass/main.scss */
 span.tags-links a {
   color: #7E7E7C;
   text-decoration: none;
 }
 
-/* line 364, ../sass/main.scss */
+/* line 368, ../sass/main.scss */
 span.tags-links a:hover {
   color: #FFFFFF;
 }
 
-/* line 368, ../sass/main.scss */
+/* line 372, ../sass/main.scss */
 span.tags-links a:visited {
   color: #B9BBBB;
 }
 
-/* line 372, ../sass/main.scss */
+/* line 376, ../sass/main.scss */
 span.edit-link a {
   color: #7E7E7C;
   text-decoration: none;
 }
 
-/* line 377, ../sass/main.scss */
+/* line 381, ../sass/main.scss */
 span.edit-link a:hover {
   color: #FFFFFF;
 }
 
-/* line 381, ../sass/main.scss */
+/* line 385, ../sass/main.scss */
 span.edit-link a:visited {
   color: #B9BBBB;
 }
 
-/* line 385, ../sass/main.scss */
+/* line 389, ../sass/main.scss */
 nav.navigation.post-navigation {
   display: none;
 }
 
-/* line 389, ../sass/main.scss */
+/* line 393, ../sass/main.scss */
 div#comments.comments-area {
   display: none;
 }
 
-/* line 393, ../sass/main.scss */
+/* line 397, ../sass/main.scss */
 .contactTitle h1 {
   color: #252839;
 }
 
-/* line 397, ../sass/main.scss */
+/* line 401, ../sass/main.scss */
 .contactContent {
   color: #252839;
 }
 
-/* line 401, ../sass/main.scss */
+/* line 405, ../sass/main.scss */
 .contactContent input[type="text"], .contactContent input[type="email"],
 .contactContent textarea {
   width: 85%;
@@ -9277,97 +9282,97 @@ div#comments.comments-area {
   background-color: #eae8e5;
 }
 
-/* line 408, ../sass/main.scss */
+/* line 412, ../sass/main.scss */
 .contactContent input[type="submit"] {
   font-size: 16px;
 }
 
-/* line 412, ../sass/main.scss */
+/* line 416, ../sass/main.scss */
 input.wpcf7-form-control.wpcf7-submit {
   margin-top: 10px;
 }
 
-/* line 416, ../sass/main.scss */
+/* line 420, ../sass/main.scss */
 .site-footer {
   margin-top: 15px;
 }
 
-/* line 420, ../sass/main.scss */
+/* line 424, ../sass/main.scss */
 div.row.copyright {
   margin-top: 15px;
 }
 
-/* line 425, ../sass/main.scss */
+/* line 429, ../sass/main.scss */
 a i.fa.fa-twitter-square.fa-3x, a i.fa.fa-facebook-square.fa-3x,
 a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-bitbucket-square.fa-3x {
   color: #7E7E7C;
 }
 
-/* line 430, ../sass/main.scss */
+/* line 434, ../sass/main.scss */
 a:hover i.fa.fa-twitter-square.fa-3x, a:hover i.fa.fa-facebook-square.fa-3x,
 a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-bitbucket-square.fa-3x {
   color: #FFFFFF;
 }
 
-/* line 435, ../sass/main.scss */
+/* line 439, ../sass/main.scss */
 a:visited i.fa.fa-twitter-square.fa-3x, a:visited i.fa.fa-facebook-square.fa-3x,
 a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3x {
   color: #B9BBBB;
 }
 
 @media (min-width: 820px) {
-  /* line 442, ../sass/main.scss */
+  /* line 446, ../sass/main.scss */
   .wpcf7-form-control.wpcf7-textarea {
     width: 103%;
   }
 }
 @media (max-width: 992px) {
-  /* line 448, ../sass/main.scss */
+  /* line 452, ../sass/main.scss */
   .contactContent input[type="text"], .contactContent input[type="email"],
   .contactContent textarea {
     width: 100%;
   }
 }
 @media (max-width: 767px) {
-  /* line 455, ../sass/main.scss */
+  /* line 459, ../sass/main.scss */
   .navbar-nav > li > a {
     text-align: center;
   }
 
-  /* line 460, ../sass/main.scss */
+  /* line 464, ../sass/main.scss */
   div[aria-expanded="true"] .site-content {
     padding-top: 145px;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
-  /* line 467, ../sass/main.scss */
+  /* line 471, ../sass/main.scss */
   .carousel-caption h1 {
     display: none;
   }
 
-  /* line 471, ../sass/main.scss */
+  /* line 475, ../sass/main.scss */
   .carousel-caption p {
     display: none;
   }
 
-  /* line 475, ../sass/main.scss */
+  /* line 479, ../sass/main.scss */
   .carousel-indicators {
     display: none;
   }
 
-  /* line 479, ../sass/main.scss */
+  /* line 483, ../sass/main.scss */
   span.IN-widget {
     width: 110%;
     position: relative;
     right: 15px;
   }
 
-  /* line 485, ../sass/main.scss */
+  /* line 489, ../sass/main.scss */
   img.avatar.avatar-128.photo {
     float: left;
   }
 
-  /* line 489, ../sass/main.scss */
+  /* line 493, ../sass/main.scss */
   .author {
     width: 278px;
   }
