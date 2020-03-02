@@ -88,7 +88,7 @@ define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
 
 /** Define Github OAuth constant */
-define('Github_OAuth', '1e0d2849edd65c9f4c79a87f9d2d2aef5f11e95a');
+define('Github_OAuth', 'c567ee761ea5c6eba7d1b42b62a1b20e225e5075');
 
 /* That's all, stop editing! Happy blogging. */
 
