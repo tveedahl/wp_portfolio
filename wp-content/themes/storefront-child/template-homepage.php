@@ -4,11 +4,6 @@
 ?>
 <?php if ( is_home() && ! is_front_page() ) : ?>
     <header>
-        <style>
-                iframe#twitter-widget-0.twitter-timeline.twitter-timeline-rendered {
-                    height: 400px !important;
-                }
-        </style
         <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
     </header>
 <?php endif; ?>
@@ -51,11 +46,11 @@
     </div>
     <div class="col-md-5">
         <?php
-                $post_id = 71;
-                $queried_post = get_post($post_id);
-                $title = $queried_post->post_title;
-                echo $title;
-                echo $queried_post->post_content;
+            $post_id = 71;
+            $queried_post = get_post($post_id);
+            $title = $queried_post->post_title;
+            echo $title;
+            echo $queried_post->post_content;
         ?>
     </div>
 </div>
@@ -79,8 +74,7 @@
         </p>
     </div>
     <div class="col-md-5 col-md-pull-7">
-            <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-            <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="timveedahl"><a class="LI-simple-link" href='https://www.linkedin.com/in/timveedahl?trk=profile-badge'>Tim Veedahl</a></div>
-    </div>
+        <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+        <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="timveedahl"><a class="LI-simple-link" href='https://www.linkedin.com/in/timveedahl?trk=profile-badge'>Tim Veedahl</a></div>    </div>
 </div>
 <?php get_footer(); ?>
