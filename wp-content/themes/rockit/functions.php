@@ -124,6 +124,8 @@ function rockit_scripts() {
 
 	wp_enqueue_script( 'rockit-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+	wp_enqueue_script( 'rockit-jquery', get_template_directory_uri() . '/js/jquery-3.4.1.min.js' );
+
 	wp_enqueue_script( 'rockit-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
