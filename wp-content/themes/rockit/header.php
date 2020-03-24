@@ -38,12 +38,12 @@
                             <a class="navbar-brand" href="<?php echo home_url(); ?>">RockIt</a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <!--<li><a href="<?php echo home_url(); ?>">Home</a></li>-->
-                                <li><a href="<?php echo site_url(); ?>/about">About</a></li>
-                                <li><a href="<?php echo site_url(); ?>/category/blog">Blog</a></li>
-                                <li><a href="<?php echo site_url(); ?>/contact">Contact</a></li>
-                            </ul>
+                            <?php 
+                                wp_nav_menu( array( 
+                                    'menu' => 'rockit-menu',
+                                    'menu_class' => 'nav navbar-nav' 
+                                ) ); 
+                            ?>
                         </div>
                     </div>
                 </nav>
