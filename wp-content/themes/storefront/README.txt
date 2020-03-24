@@ -1,9 +1,9 @@
 === Storefront ===
 Contributors: automattic, tiagonoronha, jameskoster
 Requires at least: 4.7
-Tested up to: 5.0
-Stable tag: 2.4.2
-Version: 2.4.2
+Tested up to: 5.3.2
+Stable tag: 2.5.3
+Version: 2.5.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: e-commerce, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready, rtl-language-support, footer-widgets, sticky-post, theme-options, editor-style
@@ -48,6 +48,107 @@ To the best of our knowledge, Google doesn’t track nor share end user data.
 Privacy Policy for the Google Fonts API: https://developers.google.com/fonts/faq#what_does_using_the_google_fonts_api_mean_for_the_privacy_of_my_users
 
 == Changelog ==
+
+= 2.5.5 - 2020-02-28 =
+* Fix - Blocks: Fix vertical alignment of left/right aligned image blocks. #1265
+* Fix - Blocks: Correct center alignment of product image in Top Rated Products block with small number of columns. #1267
+* Fix - Blocks: Improve margins between floated embed/image block and list block. #1272 #1274
+* Fix - Customizer: Ensure headings and links in the footer use colors set in Customizer. #1261
+
+= 2.5.4 - 2020-02-19 =
+* Feature - Add support for new `wp_body_open` hook. #1208
+* Fix - Customizer: Move "Product Page" settings into WooCommerce tab. #1224
+* Fix - Blocks: Ensure product grid blocks don't wrap unnecessarily. #1217
+* Fix - Editor: Fix layout issue with image block placeholder buttons. #1242
+* Fix - Improve "Sale!" badge legibility by using white background (was transparent). #1251
+* Fix - Improve accessibility of screen reader skip links. #1216
+* Fix - Prevent search engine indexing of add-to-cart link. #1207
+* Fix - Ensure password visibility button is not hidden on login form. #1238
+* Fix - Allow translation of "or" in admin notice for activating WooCommerce plugin. #1257
+* Fix - Remove underline from @wordpress/components button links. #1187
+* Fix - Use `noreferrer` on footer credit link. #1243
+* Dev - Update npm dev dependencies. #1258
+* Dev - Automatically exclude storefront folder & zip when preparing release. #1199
+
+= 2.5.3 - 2019-08-19 =
+* Fix - Remove directory that was included in the previous release by mistake.
+
+= 2.5.2 - 2019-08-19 =
+* Fix - Introduce extra block styles to fix issue with WooCommerce 3.7 blocks. #1189
+* Fix - Make Storefront admin notices conform to new WP.org theme rules. #1190
+* Dev - Add filter to alter credit links. #1191
+
+= 2.5.1 - 2019-07-04 =
+* Feature - WooCommerce Product Recommendations integration.
+* Enhancement - Add support for color styles in the "Table" block.
+* Fix - Move privacy link outside credit link conditional.
+* Fix - "Separator" block styles preview styling.
+* Fix - Increase Shipping Methods cell size on the Checkout page.
+* Fix - Stop logo image from overlapping with the "Menu" toggle on small screens.
+* Fix - Cover block placeholder layout.
+* Fix - Cover block paragraph size and default color.
+* Fix - Floated images alignment when using the "Image" block.
+* Fix - Uneven form input widths on checkout page.
+* Fix - Composite Products: Layout issue limited to Bundles contained in Composites when the "Hide Thumbnail" option of a bundled product is hidden.
+* Fix - Fixed an edge case where a PHP warning could show up when going through the NUX.
+* Fix - Removed CSS rule that forced a 2-column layout on cart cross-sells.
+* Fix - "Product Filter" widget styling on small screens.
+* Fix - Add styling for number input type.
+* Fix - Warning in the Query Monitor plugin when using Jetpack without the "Infinite Scroll" module enabled.
+* Dev - Removed minification from front-end stylesheets since it makes the files impossible to read for folks trying to do simple tweaks.
+* Dev - Moved style.css "do not edit" note to a non important comment.
+* Dev - Updated node dependencies.
+
+= 2.5.0 - 2019-05-09 =
+* Feature - Updated Starter Content to make use of WooCommerce 3.6 blocks, and also the new cover block introduced in WordPress 5.2, to create a custom editable homepage.
+* Tweak - Added edit link to post, pages, and products.
+* Fix - Prevent overlap of site title and handheld menu button when not using a logo image.
+* Fix - Added error styling to T&C checkbox and Country select in the Checkout page.
+* Fix - Ensure all inputs use accent color set in the Customizer.
+* Fix - Don't show sticky add to cart if product cannot be purchased.
+* Fix - Added margin to view cart link in the "Added to cart" notice.
+* Fix - Replaced CSS calc with Sass math when calculating block gallery column widths for better compatibility with IE11.
+* Fix - Change color and size of "remove" icon in the Cart page.
+* Fix - Change product pagination z-index for compatibility with PhotoSwipe.
+* Fix - Fix double scrollbar when original length of the mini cart surpasses the end of the page.
+* Fix - Move all Gutenberg assets to Gutenberg hooks.
+* Dev - Updated Composite Products integration for compatibility with version 4.0.
+* Dev - Updated FontAwesome to 5.8.1.
+
+= 2.4.6 - 2019-04-26 =
+* Fix - Sort homepage template categories by `menu_order` instead of `name`.
+* Fix - Remove menu transition when no menu is assigned to primary location.
+
+= 2.4.5 - 2019-03-15 =
+* Fix - Revert changes made to the navigation menus that in some cases could cause menus to be hidden on the page.
+
+= 2.4.4 - 2019-03-14 =
+* Tweak - Update UTM parameters on WooCommerce.com links.
+* Tweak - Compress and minify `pep.min.js`.
+* Tweak - Minify CSS files in the `base` folder.
+* Fix - Underline links in post content, footer, and breadcrumbs for better accessibility.
+* Fix - Bolder outline styles for better accessibility.
+* Fix - Stop Handheld Navigation items from being read by screen readers when the menu is collapsed.
+* Fix - Add styling for product columns on the header widget area.
+* Fix - Hide bundle/composite child cart items below the desktop size threshold.
+* Fix - Split Jetpack styles into separate files to fix a flash of content when using the infinite scroll option.
+* Dev - Update node dependencies.
+* Dev - Handheld Footer Bar JavaScript moved from `navigation.js` to `footer.js`.
+
+= 2.4.3 - 2019-02-05 =
+* Feature - Replicate Storefront's layout logic in the block editor. Wide and Full-width options are made available only if supported.
+* Enhancement - Product pagination is now circular and skips hidden products.
+* Tweak - Remove unused variables from `inc/customizer/class-storefront-customizer.php`.
+* Tweak - Refactored "Posted on" section in `storefront_post_meta()`.
+* Tweak - Standardize mixing of static/non static function calls in the `Storefront_Customizer` class.
+* Tweak - Remove padding and transition styles from post navigation.
+* Fix - Remove hard coded colors for Blocks from `gutenberg-blocks.css` and use colors set in the Customizer instead.
+* Fix - Clear floats on alignwide and alignfull blocks.
+* Fix - When outputting custom styling for extensions, check if the object `$storefront` is in the expected format and has right properties.
+* Dev - Babel added as a dependency.
+* Dev - New `assets/js/src/editor.js` file.
+* Dev - Revert filter name. `storefront_woocommerce_customizer_css` reverted to `storefront_customizer_woocommerce_css`.
+* Dev - New hooks added to post header section: `storefront_post_header_before`, `storefront_post_header_after`.
 
 = 2.4.2 - 2018-12-11 =
 * Fix - Load in `functions.php` missing `storefront-woocommerce-functions.php` file required for compatibility with Jetpack's Infinite Scroll feature.

@@ -23,7 +23,7 @@
 define('DB_NAME', 'timveeda_wordpress446');
 
 /** MySQL database username */
-define('DB_USER', 'tveedahl');
+define('DB_USER', 'sirommit');
 
 /** MySQL database password */
 define('DB_PASSWORD', 'Riley123!f');
@@ -79,16 +79,10 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
-/* Multisite */
-define('MULTISITE', true);
-define('SUBDOMAIN_INSTALL', false);
-define('DOMAIN_CURRENT_SITE', 'localhost');
-define('PATH_CURRENT_SITE', '/friendly-enigma/');
-define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1);
-
 /** Define Github OAuth constant */
 define('Github_OAuth', 'c567ee761ea5c6eba7d1b42b62a1b20e225e5075');
+
+define('FS_METHOD','direct');
 
 /* That's all, stop editing! Happy blogging. */
 

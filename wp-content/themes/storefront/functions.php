@@ -31,6 +31,7 @@ $storefront = (object) array(
 require 'inc/storefront-functions.php';
 require 'inc/storefront-template-hooks.php';
 require 'inc/storefront-template-functions.php';
+require 'inc/wordpress-shims.php';
 
 if ( class_exists( 'Jetpack' ) ) {
 	$storefront->jetpack = require 'inc/jetpack/class-storefront-jetpack.php';
@@ -39,6 +40,8 @@ if ( class_exists( 'Jetpack' ) ) {
 if ( storefront_is_woocommerce_activated() ) {
 	$storefront->woocommerce            = require 'inc/woocommerce/class-storefront-woocommerce.php';
 	$storefront->woocommerce_customizer = require 'inc/woocommerce/class-storefront-woocommerce-customizer.php';
+
+	require 'inc/woocommerce/class-storefront-woocommerce-adjacent-products.php';
 
 	require 'inc/woocommerce/storefront-woocommerce-template-hooks.php';
 	require 'inc/woocommerce/storefront-woocommerce-template-functions.php';
