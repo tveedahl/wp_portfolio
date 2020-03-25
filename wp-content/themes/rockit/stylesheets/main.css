@@ -8797,352 +8797,357 @@ body {
 }
 
 /* line 32, ../sass/main.scss */
+hr {
+  border-top: 1px solid #bbbbbb !important;
+}
+
+/* line 36, ../sass/main.scss */
 #myCarousel {
   margin-bottom: 40px;
 }
 
-/* line 37, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 .carousel-caption.first {
   bottom: 120px;
 }
 
-/* line 41, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 .carousel-caption.second {
   bottom: 90px;
 }
 
-/* line 45, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 .carousel-caption.third {
   bottom: 90px;
 }
 
-/* line 49, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 .col-lg-4 h2 {
   color: #FFFFFF;
 }
 
-/* line 53, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 .col-lg-4 p {
   color: #FFFFFF;
 }
 
-/* line 57, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 a.more-link {
   color: #BBBBBB;
   text-decoration: none;
 }
 
-/* line 62, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 a.more-link:hover {
   color: #D4D4D4;
 }
 
-/* line 66, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 a.more-link:visited {
   color: #FAFAFA;
 }
 
-/* line 70, ../sass/main.scss */
+/* line 74, ../sass/main.scss */
 span.page-numbers.current {
   color: #D4D4D4;
 }
 
-/* line 74, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 a.page-numbers {
   color: #BBBBBB;
   text-decoration: none;
 }
 
-/* line 79, ../sass/main.scss */
+/* line 83, ../sass/main.scss */
 a.page-numbers:hover {
   color: #D4D4D4;
 }
 
-/* line 83, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 a.page-numbers:visited {
   color: #FAFAFA;
 }
 
-/* line 87, ../sass/main.scss */
+/* line 91, ../sass/main.scss */
 .site-info {
   color: #FFFFFF;
 }
 
-/* line 91, ../sass/main.scss */
+/* line 95, ../sass/main.scss */
 .pImage {
   float: left;
   margin-bottom: 35px;
   margin-right: 15px;
 }
 
-/* line 97, ../sass/main.scss */
+/* line 101, ../sass/main.scss */
 h1.text-center {
   color: #FFFFFF;
 }
 
-/* line 101, ../sass/main.scss */
+/* line 105, ../sass/main.scss */
 .about p {
   line-height: 1.75;
   color: #F9F9F9 !important;
 }
 
-/* line 106, ../sass/main.scss */
+/* line 110, ../sass/main.scss */
 .blogTitle {
   margin-bottom: 15px;
   color: #FFFFFF;
   line-height: 1.1;
 }
 
-/* line 112, ../sass/main.scss */
+/* line 116, ../sass/main.scss */
 .blogTime {
   margin-bottom: 15px;
   color: #f3f3f3;
 }
 
-/* line 117, ../sass/main.scss */
+/* line 121, ../sass/main.scss */
 .blogContent {
   margin-bottom: 45px;
   line-height: 1.75;
 }
 
-/* line 122, ../sass/main.scss */
+/* line 126, ../sass/main.scss */
 .blogContent img.img-circle {
   float: left;
   margin-right: 15px;
 }
 
-/* line 127, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
 .blogContent p {
   color: #F9F9F9;
 }
 
-/* line 131, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 .blogTags {
   margin-bottom: 85px;
   color: #f3f3f3;
 }
 
-/* line 136, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .blogTags a {
   margin-bottom: 85px;
   color: #BBBBBB;
   text-decoration: none;
 }
 
-/* line 142, ../sass/main.scss */
+/* line 146, ../sass/main.scss */
 .blogTags a:hover {
   color: #D4D4D4;
 }
 
-/* line 146, ../sass/main.scss */
+/* line 150, ../sass/main.scss */
 .blogTags a:visited {
   color: #FAFAFA;
 }
 
-/* line 150, ../sass/main.scss */
+/* line 154, ../sass/main.scss */
 .singleTitle .col-lg-6.col-lg-offset-2 {
   margin-bottom: 15px;
   color: #FFFFFF;
 }
 
-/* line 155, ../sass/main.scss */
+/* line 159, ../sass/main.scss */
 span.posted-on {
   color: #f3f3f3;
 }
 
-/* line 159, ../sass/main.scss */
+/* line 163, ../sass/main.scss */
 time.entry-date.published.updated {
   color: #BBBBBB;
 }
 
-/* line 163, ../sass/main.scss */
+/* line 167, ../sass/main.scss */
 time.entry-date.published.updated:hover {
   color: #D4D4D4;
 }
 
-/* line 167, ../sass/main.scss */
+/* line 171, ../sass/main.scss */
 time.entry-date.published.updated:visited {
   color: #FAFAFA;
 }
 
-/* line 171, ../sass/main.scss */
+/* line 175, ../sass/main.scss */
 span.byline {
   color: #f3f3f3;
 }
 
-/* line 175, ../sass/main.scss */
+/* line 179, ../sass/main.scss */
 a.url.fn.n {
   color: #BBBBBB;
   text-decoration: none;
 }
 
-/* line 180, ../sass/main.scss */
+/* line 184, ../sass/main.scss */
 a.url.fn.n:hover {
   color: #D4D4D4;
 }
 
-/* line 184, ../sass/main.scss */
+/* line 188, ../sass/main.scss */
 a.url.fn.n:visited {
   color: #FAFAFA;
 }
 
-/* line 188, ../sass/main.scss */
+/* line 192, ../sass/main.scss */
 div.entry-content {
   margin-bottom: 45px;
 }
 
-/* line 192, ../sass/main.scss */
+/* line 196, ../sass/main.scss */
 img.img-circle {
   margin: 0 15px 0 0;
 }
 
-/* line 196, ../sass/main.scss */
+/* line 200, ../sass/main.scss */
 div.entry-content img.img-circle {
   float: left;
   margin-right: 15px;
   margin-bottom: 15px;
 }
 
-/* line 202, ../sass/main.scss */
+/* line 206, ../sass/main.scss */
 div.entry-content p {
   color: #F9F9F9;
   line-height: 1.75;
 }
 
-/* line 207, ../sass/main.scss */
+/* line 211, ../sass/main.scss */
 span.cat-links {
   color: #f3f3f3;
   display: block;
   margin-bottom: 15px;
 }
 
-/* line 213, ../sass/main.scss */
+/* line 217, ../sass/main.scss */
 span.cat-links a {
   color: #BBBBBB;
   text-decoration: none;
 }
 
-/* line 218, ../sass/main.scss */
+/* line 222, ../sass/main.scss */
 span.cat-links a:hover {
   color: #D4D4D4;
 }
 
-/* line 222, ../sass/main.scss */
+/* line 226, ../sass/main.scss */
 span.cat-links a:visited {
   color: #FAFAFA;
 }
 
-/* line 226, ../sass/main.scss */
+/* line 230, ../sass/main.scss */
 span.tags-links {
   color: #f3f3f3;
   display: block;
   margin-bottom: 15px;
 }
 
-/* line 232, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 span.tags-links a {
   color: #BBBBBB;
   text-decoration: none;
 }
 
-/* line 237, ../sass/main.scss */
+/* line 241, ../sass/main.scss */
 span.tags-links a:hover {
   color: #D4D4D4;
 }
 
-/* line 241, ../sass/main.scss */
+/* line 245, ../sass/main.scss */
 span.tags-links a:visited {
   color: #FAFAFA;
 }
 
-/* line 245, ../sass/main.scss */
+/* line 249, ../sass/main.scss */
 span.edit-link a {
   color: #BBBBBB;
   text-decoration: none;
 }
 
-/* line 250, ../sass/main.scss */
+/* line 254, ../sass/main.scss */
 span.edit-link a:hover {
   color: #D4D4D4;
 }
 
-/* line 254, ../sass/main.scss */
+/* line 258, ../sass/main.scss */
 span.edit-link a:visited {
   color: #FAFAFA;
 }
 
-/* line 258, ../sass/main.scss */
+/* line 262, ../sass/main.scss */
 nav.navigation.post-navigation {
   display: none;
 }
 
-/* line 262, ../sass/main.scss */
+/* line 266, ../sass/main.scss */
 div#comments.comments-area {
   display: none;
 }
 
-/* line 266, ../sass/main.scss */
+/* line 270, ../sass/main.scss */
 .contactTitle h1 {
   color: #FFFFFF;
 }
 
-/* line 270, ../sass/main.scss */
+/* line 274, ../sass/main.scss */
 .contactContent {
   color: #F9F9F9;
 }
 
-/* line 274, ../sass/main.scss */
+/* line 278, ../sass/main.scss */
 .contactContent input[type="text"], .contactContent input[type="email"],
 .contactContent textarea, .contactContent input[type="submit"] {
   font-size: 16px !important;
   background-color: #f3f3f3;
 }
 
-/* line 280, ../sass/main.scss */
+/* line 284, ../sass/main.scss */
 .site-footer {
   margin-top: 45px;
 }
 
-/* line 284, ../sass/main.scss */
+/* line 288, ../sass/main.scss */
 div.row.copyright {
   margin-top: 15px;
 }
 
-/* line 289, ../sass/main.scss */
+/* line 293, ../sass/main.scss */
 a i.fa.fa-twitter-square.fa-3x, a i.fa.fa-facebook-square.fa-3x,
 a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-bitbucket-square.fa-3x {
   color: #BBBBBB;
 }
 
-/* line 294, ../sass/main.scss */
+/* line 298, ../sass/main.scss */
 a:hover i.fa.fa-twitter-square.fa-3x, a:hover i.fa.fa-facebook-square.fa-3x,
 a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-bitbucket-square.fa-3x {
   color: #D4D4D4;
 }
 
-/* line 299, ../sass/main.scss */
+/* line 303, ../sass/main.scss */
 a:visited i.fa.fa-twitter-square.fa-3x, a:visited i.fa.fa-facebook-square.fa-3x,
 a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3x {
   color: #FAFAFA;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  /* line 306, ../sass/main.scss */
+  /* line 310, ../sass/main.scss */
   .carousel-caption h1 {
     display: none;
   }
 
-  /* line 310, ../sass/main.scss */
+  /* line 314, ../sass/main.scss */
   .carousel-caption p {
     display: none;
   }
 
-  /* line 314, ../sass/main.scss */
+  /* line 318, ../sass/main.scss */
   .carousel-indicators {
     display: none;
   }
 
-  /* line 318, ../sass/main.scss */
+  /* line 322, ../sass/main.scss */
   .contactContent input[type="text"], .contactContent input[type="email"],
   textarea {
     width: 100%;
