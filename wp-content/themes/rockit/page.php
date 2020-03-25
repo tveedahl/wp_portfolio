@@ -19,6 +19,8 @@
     <?php
         if (is_page('About')) {
             get_template_part( 'template-parts/content-about', 'page' );
+        } elseif (is_page('Portfolio')) {
+            get_template_part( 'template-parts/content-portfolio', 'page' );
         } elseif (is_page('Contact')) {
             get_template_part( 'template-parts/content-contact', 'page' );
         }
