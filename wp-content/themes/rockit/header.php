@@ -35,7 +35,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="<?php echo home_url(); ?>">RockIt</a>
+                            <a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="wp-content/themes/rockit/images/timveedahl_logo_v3.gif" /></a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <?php 
