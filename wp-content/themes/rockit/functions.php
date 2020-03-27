@@ -76,6 +76,9 @@ function rockit_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	// Set up custom logo
+	add_theme_support( 'custom-logo' );
 }
 endif; // rockit_setup
 add_action( 'after_setup_theme', 'rockit_setup' );
