@@ -42,14 +42,7 @@
         </p>
     </div>
     <div class="col-md-5">
-        <?php
-            $post_id = 71;
-            $queried_post = get_post($post_id);
-            $title = $queried_post->post_title;
-            echo $title;
-            echo $queried_post->post_content;
-        ?>
-    </div>
+    <a class="twitter-timeline" data-width="350" data-height="300" data-theme="dark" href="https://twitter.com/t_veedahl?ref_src=twsrc%5Etfw">Tweets by t_veedahl</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>     </div>
 </div>
 <hr class="featurette-divider">
 <div class="row featurette">
@@ -72,6 +65,7 @@
     </div>
     <div class="col-md-5 col-md-pull-7">
         <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-        <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="timveedahl"><a class="LI-simple-link" href='https://www.linkedin.com/in/timveedahl?trk=profile-badge'>Tim Veedahl</a></div>    </div>
+        <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="timveedahl"><a class="LI-simple-link" href='https://www.linkedin.com/in/timveedahl?trk=profile-badge'>Tim Veedahl</a></div>    
+    </div>
 </div>
 <?php get_footer(); ?>
