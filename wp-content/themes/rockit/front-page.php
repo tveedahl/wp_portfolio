@@ -64,8 +64,7 @@
         </p>
     </div>
     <div class="col-md-5 col-md-pull-7">
-        <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-        <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="timveedahl"><a class="LI-simple-link" href='https://www.linkedin.com/in/timveedahl?trk=profile-badge'>Tim Veedahl</a></div>    
+        <a href="https://www.linkedin.com/in/timveedahl/" target="_blank"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/linkedin_timveedahl_v2.gif" /></a>
     </div>
 </div>
 <?php get_footer(); ?>
