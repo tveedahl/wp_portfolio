@@ -57,14 +57,14 @@
 </div>
 <hr class="featurette-divider">
 <div class="row featurette">
-    <div class="col-md-7 col-md-push-5 text-center">
+    <div class="col-md-6 col-md-push-5 text-center">
         <h2 class="featurette-heading">Connect With Me. <span class="text-muted">Join my LinkedIn Network.</span></h2>
         <p class="lead">
             I maintain an active LinkedIn profile. Check it out to get a better sense of my work history and skill set.
         </p>
     </div>
     <div class="col-md-5 col-md-pull-6 text-center">
-        <a href="https://www.linkedin.com/in/timveedahl/" target="_blank"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/linkedin_timveedahl_v2.gif" /></a>
+        <a href="https://www.linkedin.com/in/timveedahl/" target="_blank"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/linkedin_timveedahl_v3.gif" /></a>
     </div>
 </div>
 <?php get_footer(); ?>
