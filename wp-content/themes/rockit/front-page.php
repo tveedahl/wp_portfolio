@@ -35,13 +35,13 @@
     <h1 class="col-lg-12 text-center">Who I Am</h1>
 </div>
 <div class="row featurette">
-    <div class="col-md-7 pull-right">
+    <div class="col-md-7 text-center">
         <h2 class="featurette-heading">What I Follow. <span class="text-muted">Industry trends I find important.</span></h2>
         <p class="lead">
             Twitter is my source for keeping current. I find this integral to being an effective developer.
         </p>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 text-center">
     <a class="twitter-timeline" data-width="350" data-height="300" data-theme="dark" href="https://twitter.com/t_veedahl?ref_src=twsrc%5Etfw">Tweets by t_veedahl</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>     </div>
 </div>
 <hr class="featurette-divider">
@@ -57,13 +57,13 @@
 </div>
 <hr class="featurette-divider">
 <div class="row featurette">
-    <div class="col-md-7 col-md-push-5">
+    <div class="col-md-7 col-md-push-5 text-center">
         <h2 class="featurette-heading">Connect With Me. <span class="text-muted">Join my LinkedIn Network.</span></h2>
         <p class="lead">
             I maintain an active LinkedIn profile. Check it out to get a better sense of my work history and skill set.
         </p>
     </div>
-    <div class="col-md-5 col-md-pull-7">
+    <div class="col-md-5 col-md-pull-6 text-center">
         <a href="https://www.linkedin.com/in/timveedahl/" target="_blank"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/images/linkedin_timveedahl_v2.gif" /></a>
     </div>
 </div>
