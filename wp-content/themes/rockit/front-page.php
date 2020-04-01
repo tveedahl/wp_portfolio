@@ -46,7 +46,7 @@
 </div>
 <hr class="featurette-divider">
 <div class="row featurette">
-    <div class="col-md-7">
+    <div class="col-md-7 text-center">
         <h2 class="featurette-heading">What I Build. <span class="text-muted">See what I tinker with on Github.</span></h2>
         <p class="lead">
             You can checkout the source code for all my public code repositories in Github. Another way I learn new skills is by building things using a variety of technologies.
