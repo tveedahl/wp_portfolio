@@ -10,26 +10,26 @@
  */
 
 ?>
-<div class="container">
-    <footer id="colophon" class="site-footer" role="contentinfo">
-        <div class="site-info text-center">
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-4">
-                    <a href="#" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-facebook-square fa-3x"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-linkedin-square fa-3x"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-bitbucket-square fa-3x"></i></a>
+        <div class="container">
+            <footer id="colophon" class="site-footer" role="contentinfo">
+                <div class="site-info text-center">
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                            <?php
+                                $page = get_page_by_title('Footer', OBJECT, 'post');
+                                echo '<footer id="colophon" class="site-footer" role="contentinfo">';
+                                echo $page->post_content;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="row copyright">
+                        <div class="col-lg-4 col-lg-offset-4">
+                            <?php echo '&copy;&nbsp;' . date("Y") . ' - Tim Veedahl'; ?>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row copyright">
-                <div class="col-lg-4 col-lg-offset-4">
-                    <?php echo '&copy;&nbsp;' . date("Y") . ' - Rockit'; ?>
-                </div>
-            </div>
+            </footer>
         </div>
-    </footer>
-</div>
-<?php wp_footer(); ?>
-
-</body>
+        <?php wp_footer(); ?>
+    </body>
 </html>
