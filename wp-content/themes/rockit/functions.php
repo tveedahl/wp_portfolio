@@ -167,7 +167,7 @@ require get_template_directory() . '/inc/jetpack.php';
 */
 function rockit_showAdminMessages()
 {
-	$plugin_messages = array();
+	/*$plugin_messages = array();
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     // Download the Meta Tag Manager plugin
 	if(!is_plugin_active( 'meta-tag-manager/meta-tag-manager.php' ))
@@ -190,7 +190,7 @@ function rockit_showAdminMessages()
         {
             echo '<div class="notice notice-error is-dismissible"><p>'. $message . '</p></div>';
         }
-	}
+	}*/
 }
 add_action('admin_notices', 'rockit_showAdminMessages');
 
