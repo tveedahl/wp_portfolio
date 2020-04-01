@@ -35,7 +35,7 @@
     <h1 class="col-lg-12 text-center">Who I Am</h1>
 </div>
 <div class="row featurette">
-    <div class="col-md-7 text-center">
+    <div class="col-md-6 text-center">
         <h2 class="featurette-heading">What I Follow. <span class="text-muted">Industry trends I find important.</span></h2>
         <p class="lead">
             Twitter is my source for keeping current. I find this integral to being an effective developer.
@@ -46,14 +46,16 @@
 </div>
 <hr class="featurette-divider">
 <div class="row featurette">
-    <div class="col-md-7 text-center">
+    <div class="col-md-6">
         <h2 class="featurette-heading">What I Build. <span class="text-muted">See what I tinker with on Github.</span></h2>
         <p class="lead">
             You can checkout the source code for all my public code repositories in Github. Another way I learn new skills is by building things using a variety of technologies.
         </p>
     </div>
-    <div class="github-card" data-github="tveedahl" data-width="400" data-height="152" data-theme="default"></div>
-    <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    <div class="col-md-5 text-center">
+        <div class="github-card text-center" data-github="tveedahl" data-width="400" data-height="152" data-theme="default"></div>
+        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    </div>
 </div>
 <hr class="featurette-divider">
 <div class="row featurette">
