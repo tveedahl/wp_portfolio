@@ -17,7 +17,7 @@
     </div>
 </div>
 <div class="row contactContent">
-    <div class="col-md-5 col-md-offset-4">
+    <div class="col-md-offset-4">
         <?php the_content(); ?>
     </div>
 </div>
