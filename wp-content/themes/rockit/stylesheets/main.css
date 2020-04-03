@@ -9125,19 +9125,19 @@ div.row.copyright {
 
 /* line 301, ../sass/main.scss */
 a i.fa.fa-twitter-square.fa-3x, a i.fa.fa-facebook-square.fa-3x,
-a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-bitbucket-square.fa-3x {
+a i.fa.fa-linkedin-square.fa-3x, a i.fa.fa-github-square.fa-3x {
   color: #BBBBBB;
 }
 
 /* line 306, ../sass/main.scss */
 a:hover i.fa.fa-twitter-square.fa-3x, a:hover i.fa.fa-facebook-square.fa-3x,
-a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-bitbucket-square.fa-3x {
+a:hover i.fa.fa-linkedin-square.fa-3x, a:hover i.fa.fa-github-square.fa-3x {
   color: #D4D4D4;
 }
 
 /* line 311, ../sass/main.scss */
 a:visited i.fa.fa-twitter-square.fa-3x, a:visited i.fa.fa-facebook-square.fa-3x,
-a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-bitbucket-square.fa-3x {
+a:visited i.fa.fa-linkedin-square.fa-3x, a:visited i.fa.fa-github-square.fa-3x {
   color: #FAFAFA;
 }
 
